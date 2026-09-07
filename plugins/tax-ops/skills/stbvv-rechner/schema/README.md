@@ -53,7 +53,7 @@ Genau **ein** Hauptberechnungs-Block je Anfrage — `wertgebuehr`,
 ```
 
 - `stichtag`: Pflicht, ISO-Datum. Muss `>= 2025-07-01` sein (aktuelle
-  Fassung) — ein früherer Stichtag ist eine Lücke (Exit 2).
+  Fassung) — ein früherer Stichtag ist eine Lücke (Exit 1).
 - `minuten`: Pflicht, ganze Zahl >= 1. Wird auf angefangene Viertelstunden
   aufgerundet (14 Min. -> 1 Einheit, 15 Min. -> 1 Einheit, 16 Min. ->
   2 Einheiten).
@@ -82,7 +82,7 @@ Genau **ein** Hauptberechnungs-Block je Anfrage — `wertgebuehr`,
   (Dezimalstring, Default `"0.19"`): § 15 StBVV.
 
 Jeder nicht vorgesehene Key auf oberster Ebene oder innerhalb eines Blocks
-ist ein Eingabefehler (Exit 2, mit Namen des Keys) — kein stilles Ignorieren.
+ist ein fachlicher Fehler (Exit 1, mit Namen des Keys) — kein stilles Ignorieren.
 
 Geldbeträge und Sätze **immer als JSON-String**, nie als `float` — der
 Executor lehnt `float`-Eingaben strikt ab.

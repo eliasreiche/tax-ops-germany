@@ -66,7 +66,7 @@ Kurzfassung:
 - **`umsatzsteuer`** (Default `true`) und optional `umsatzsteuersatz`
   (Dezimalstring, Default `"0.19"`): § 15 StBVV.
 
-Ein nicht vorgesehener Key (Tippfehler) führt zu Exit 2 mit Nennung des
+Ein nicht vorgesehener Key (Tippfehler) führt zu Exit 1 mit Nennung des
 Keys — nie stilles Ignorieren. Geldbeträge und Sätze immer als
 JSON-**String** (z. B. `"5000.00"`), nie als `float` (Rundungsfehler wie
 0,1+0,2 sind bei Geldbeträgen ein Haftungsrisiko).
@@ -99,7 +99,7 @@ JSON-**String** (z. B. `"5000.00"`), nie als `float` (Rundungsfehler wie
    - **Erstberatungs-Kappung** (190 Euro), wenn angefordert und gegriffen,
    - **Netto/Brutto** mit Auslagenpauschale und USt getrennt ausgewiesen,
    - den Zweitkontroll-Hinweis aus `haftung` (immer, bei jeder Antwort).
-5. Bei Exit-Code 2 (Eingabefehler, u. a. unbekannte Tatbestands-Id,
+5. Bei Exit-Code 1 (fachlicher Fehler, u. a. unbekannte Tatbestands-Id,
    Gegenstandswert außerhalb einer hinterlegten Tabelle ohne
    Fortschreibungsformel, Zeitgebühr-Stichtag vor 2025-07-01, Satz
    außerhalb des Rahmens, unbekannter Key) gibt Claude die Fehlermeldung
@@ -145,7 +145,7 @@ Obergrenze 41,00 Euro je angefangene Viertelstunde:
 
 ### Beispiel 3 — Scope-Ablehnung: Zeitgebühr vor dem Stichtag
 
-Anfrage mit `"stichtag": "2024-01-01"` liefert Exit 2: „Zeitgebühr § 13
+Anfrage mit `"stichtag": "2024-01-01"` liefert Exit 1: „Zeitgebühr § 13
 StBVV: Stichtag 2024-01-01 liegt vor 2025-07-01 (aktuelle Fassung, BGBl.
 2025 I Nr. 105) — für frühere Stichtage ist kein Satz primärquellig
 geprüft, keine automatische Berechnung möglich." Claude gibt diese Meldung
