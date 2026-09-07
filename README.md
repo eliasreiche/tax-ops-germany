@@ -104,6 +104,7 @@ sind branchenunabhängig und direkt einsetzbar:
 | Skill | Bereich | Welle | Status |
 |---|---|---|---|
 | [`ao-fristenrechner`](plugins/tax-ops/skills/ao-fristenrechner/SKILL.md) | `fristen` | 6 | 🧪 `beta` |
+| [`aufgaben-triage`](plugins/tax-ops/skills/aufgaben-triage/SKILL.md) | `posteingang` | 6 | 🧪 `beta` |
 | [`stbvv-rechner`](plugins/tax-ops/skills/stbvv-rechner/SKILL.md) | `verguetung` | 6 | 🧪 `beta` |
 <!-- skill-status:ende -->
 

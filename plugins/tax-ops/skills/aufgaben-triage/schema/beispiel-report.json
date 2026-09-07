@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "erzeugt_von": "triage/executor.py",
+    "quelle_datei": "beispiel-eingabe.json",
+    "bundesland": "NW",
+    "heute": "2026-09-08",
+    "anzahl_mails": 8,
+    "anzahl_mandanten": 2,
+    "anzahl_offene_aufgaben": 1,
+    "anzahl_gesendet": 1
+  },
+  "vorschlaege": [
+    {
+      "mail_id": "mail-001",
+      "mandant": "Backstube Sonnenschein GmbH",
+      "zuordnung_stufe": "S2",
+      "zuordnung_score": 0.6667,
+      "zuordnung_begruendung": "'Backstube Sonnenschein GmbH' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {backstube, sonnenschein} ⊆ {backstube, sonnenschein, steuerbescheid}",
+      "klasse_vorschlag": "aufgabe",
+      "indikatoren": [
+        {
+          "begriff": "steuerbescheid",
+          "kategorie": "bescheid_einspruch",
+          "norm": "§ 355 Abs. 1 AO",
+          "fristart": "einspruchsfrist",
+          "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__355.html"
+        }
+      ],
+      "faelligkeit": "2026-09-14",
+      "faelligkeit_unklar": false,
+      "prioritaet": "hoch",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "§ 355 Abs. 1 AO",
+          "beschreibung": "Indikator 'steuerbescheid' erkannt (Kategorie: bescheid_einspruch, Standard-Dringlichkeit: hoch).",
+          "ergebnis": null,
+          "quelle": "executor"
+        },
+        {
+          "schritt": 2,
+          "norm": "Textanalyse",
+          "beschreibung": "Bescheiddatum im Text erkannt: 2026-08-10.",
+          "ergebnis": "2026-08-10",
+          "quelle": "executor"
+        },
+        {
+          "schritt": 3,
+          "norm": "§ 122 Abs. 2 Nr. 1 AO",
+          "beschreibung": "Aufgabe zur Post am 10.08.2026 (Montag): Bekanntgabe gilt am vierten Tage danach als bewirkt (Zugangsvermutung, gilt seit 01.01.2025).",
+          "ergebnis": "2026-08-14",
+          "quelle": "executor"
+        },
+        {
+          "schritt": 4,
+          "norm": "§ 108 Abs. 1 AO i. V. m. § 187 Abs. 1 BGB",
+          "beschreibung": "Tag der Bekanntgabe (14.08.2026, Freitag) wird nicht mitgerechnet; Fristbeginn am Folgetag.",
+          "ergebnis": "2026-08-15",
+          "quelle": "executor"
+        },
+        {
+          "schritt": 5,
+          "norm": "§ 355 Abs. 1 AO, § 108 Abs. 1 AO i. V. m. § 188 Abs. 2 BGB",
+          "beschreibung": "Monatsfrist: Ende mit Ablauf des Tages, der durch seine Zahl dem Tag der Bekanntgabe entspricht.",
+          "ergebnis": "2026-09-14",
+          "quelle": "executor"
+        },
+        {
+          "schritt": 6,
+          "norm": "Dringlichkeits-Einstufung",
+          "beschreibung": "Restfrist heute (2026-09-08) -> Fälligkeit (2026-09-14): 4 Werktage.",
+          "ergebnis": "hoch",
+          "quelle": "executor"
+        },
+        {
+          "schritt": 7,
+          "norm": "Prioritäts-Matrix",
+          "beschreibung": "max(Indikator-Dringlichkeit='hoch', Restfrist-Dringlichkeit='hoch') = 'hoch'.",
+          "ergebnis": "hoch",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "bescheid einspruch: Steuerbescheid Backstube Sonnenschein GmbH"
+    },
+    {
+      "mail_id": "mail-002",
+      "mandant": "Muster-Handel KG",
+      "zuordnung_stufe": "S2",
+      "zuordnung_score": 0.6667,
+      "zuordnung_begruendung": "'Muster-Handel KG' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {handel, muster} ⊆ {handel, muster, pruefungsanordnung}",
+      "klasse_vorschlag": "aufgabe",
+      "indikatoren": [
+        {
+          "begriff": "prüfungsanordnung",
+          "kategorie": "pruefungsanordnung",
+          "norm": "§ 196 AO",
+          "fristart": "aussenpruefung",
+          "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__196.html"
+        }
+      ],
+      "faelligkeit": null,
+      "faelligkeit_unklar": false,
+      "prioritaet": "normal",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "§ 196 AO",
+          "beschreibung": "Indikator 'prüfungsanordnung' erkannt (Kategorie: pruefungsanordnung, Standard-Dringlichkeit: normal).",
+          "ergebnis": null,
+          "quelle": "executor"
+        },
+        {
+          "schritt": 2,
+          "norm": "Prioritäts-Matrix",
+          "beschreibung": "Keine Fälligkeitsberechnung für diese Kategorie(n) — höchste Standard-Dringlichkeit 'normal' übernommen.",
+          "ergebnis": "normal",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "pruefungsanordnung: Prüfungsanordnung Muster-Handel KG"
+    },
+    {
+      "mail_id": "mail-003",
+      "mandant": "Muster-Handel KG",
+      "zuordnung_stufe": "S2",
+      "zuordnung_score": 0.5,
+      "zuordnung_begruendung": "'Muster-Handel KG' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {handel, muster} ⊆ {handel, mahnung, muster, umsatzsteuer}",
+      "klasse_vorschlag": "aufgabe",
+      "indikatoren": [
+        {
+          "begriff": "vollstreckungsankündigung",
+          "kategorie": "mahnung_vollstreckung",
+          "norm": "§ 259 AO",
+          "fristart": "vollstreckung",
+          "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__259.html"
+        }
+      ],
+      "faelligkeit": null,
+      "faelligkeit_unklar": false,
+      "prioritaet": "sofort",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "§ 259 AO",
+          "beschreibung": "Indikator 'vollstreckungsankündigung' erkannt (Kategorie: mahnung_vollstreckung, Standard-Dringlichkeit: sofort).",
+          "ergebnis": null,
+          "quelle": "executor"
+        },
+        {
+          "schritt": 2,
+          "norm": "Prioritäts-Matrix",
+          "beschreibung": "Keine Fälligkeitsberechnung für diese Kategorie(n) — höchste Standard-Dringlichkeit 'sofort' übernommen.",
+          "ergebnis": "sofort",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "mahnung vollstreckung: Mahnung Umsatzsteuer Muster-Handel KG"
+    },
+    {
+      "mail_id": "mail-004",
+      "mandant": "Backstube Sonnenschein GmbH",
+      "zuordnung_stufe": "S2",
+      "zuordnung_score": 0.6667,
+      "zuordnung_begruendung": "'Backstube Sonnenschein GmbH' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {backstube, sonnenschein} ⊆ {backstube, sonnenschein, vorauszahlungsbescheid}",
+      "klasse_vorschlag": "aufgabe",
+      "indikatoren": [
+        {
+          "begriff": "vorauszahlungsbescheid",
+          "kategorie": "vorauszahlungsbescheid",
+          "norm": "§ 37 Abs. 3 EStG",
+          "fristart": "vorauszahlung",
+          "quelle_url": "https://www.gesetze-im-internet.de/estg/__37.html"
+        }
+      ],
+      "faelligkeit": null,
+      "faelligkeit_unklar": false,
+      "prioritaet": "normal",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "§ 37 Abs. 3 EStG",
+          "beschreibung": "Indikator 'vorauszahlungsbescheid' erkannt (Kategorie: vorauszahlungsbescheid, Standard-Dringlichkeit: normal).",
+          "ergebnis": null,
+          "quelle": "executor"
+        },
+        {
+          "schritt": 2,
+          "norm": "Prioritäts-Matrix",
+          "beschreibung": "Keine Fälligkeitsberechnung für diese Kategorie(n) — höchste Standard-Dringlichkeit 'normal' übernommen.",
+          "ergebnis": "normal",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "vorauszahlungsbescheid: Vorauszahlungsbescheid Backstube Sonnenschein GmbH"
+    },
+    {
+      "mail_id": "mail-005",
+      "mandant": "Backstube Sonnenschein GmbH",
+      "zuordnung_stufe": "domain",
+      "zuordnung_score": 1.0,
+      "zuordnung_begruendung": "Absender-Domain 'backstube-sonnenschein.example' == Alias 'backstube-sonnenschein.example' von Mandant 'Backstube Sonnenschein GmbH'",
+      "klasse_vorschlag": "rueckfrage",
+      "indikatoren": [],
+      "faelligkeit": null,
+      "faelligkeit_unklar": false,
+      "prioritaet": "normal",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "Regel",
+          "beschreibung": "Kein Fristindikator erkannt.",
+          "ergebnis": "normal",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "Frage zu den Lohnunterlagen"
+    },
+    {
+      "mail_id": "mail-006",
+      "mandant": null,
+      "zuordnung_stufe": null,
+      "zuordnung_score": null,
+      "zuordnung_begruendung": null,
+      "klasse_vorschlag": "info",
+      "indikatoren": [],
+      "faelligkeit": null,
+      "faelligkeit_unklar": false,
+      "prioritaet": "info",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "Regel",
+          "beschreibung": "Kein Fristindikator erkannt.",
+          "ergebnis": "info",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "Rundschreiben September 2026"
+    },
+    {
+      "mail_id": "mail-007",
+      "mandant": "Muster-Handel KG",
+      "zuordnung_stufe": "S2",
+      "zuordnung_score": 0.6667,
+      "zuordnung_begruendung": "'Muster-Handel KG' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {handel, muster} ⊆ {handel, muster, steuerbescheid}",
+      "klasse_vorschlag": "aufgabe",
+      "indikatoren": [
+        {
+          "begriff": "steuerbescheid",
+          "kategorie": "bescheid_einspruch",
+          "norm": "§ 355 Abs. 1 AO",
+          "fristart": "einspruchsfrist",
+          "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__355.html"
+        }
+      ],
+      "faelligkeit": null,
+      "faelligkeit_unklar": true,
+      "prioritaet": "hoch",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "§ 355 Abs. 1 AO",
+          "beschreibung": "Indikator 'steuerbescheid' erkannt (Kategorie: bescheid_einspruch, Standard-Dringlichkeit: hoch).",
+          "ergebnis": null,
+          "quelle": "executor"
+        },
+        {
+          "schritt": 2,
+          "norm": "Textanalyse",
+          "beschreibung": "Mehrere/mehrdeutige Datumsangaben im Umfeld von 'Bescheid vom'/'Datum' gefunden — kein Datum wird geraten.",
+          "ergebnis": "[unklar]",
+          "quelle": "executor"
+        },
+        {
+          "schritt": 3,
+          "norm": "Regel",
+          "beschreibung": "Mehrdeutiges Bescheiddatum -> Priorität zwingend 'hoch' (Zweitkontrolle).",
+          "ergebnis": "hoch",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "bescheid einspruch: Steuerbescheid Muster-Handel KG"
+    },
+    {
+      "mail_id": "mail-008",
+      "mandant": null,
+      "zuordnung_stufe": null,
+      "zuordnung_score": null,
+      "zuordnung_begruendung": null,
+      "klasse_vorschlag": "unklar",
+      "indikatoren": [],
+      "faelligkeit": null,
+      "faelligkeit_unklar": false,
+      "prioritaet": "normal",
+      "erkannte_steuernummern": [],
+      "rechenkette": [
+        {
+          "schritt": 1,
+          "norm": "Regel",
+          "beschreibung": "Kein Fristindikator erkannt.",
+          "ergebnis": "normal",
+          "quelle": "executor"
+        }
+      ],
+      "aufgabentitel_vorschlag": "Allgemeine Anfrage"
+    }
+  ],
+  "erledigt_vorschlaege": [
+    {
+      "aufgabe_id": "aufgabe-001",
+      "mandant": "Backstube Sonnenschein GmbH",
+      "titel": "Lohnunterlagen August anfordern",
+      "match_art": "thread_id",
+      "beleg": {
+        "an": "p.beispiel@backstube-sonnenschein.example",
+        "datum": "2026-09-07",
+        "betreff": "AW: Lohnunterlagen August anfordern"
+      }
+    }
+  ],
+  "unzugeordnet": [
+    {
+      "mail_id": "mail-006",
+      "betreff": "Rundschreiben September 2026",
+      "von": "Newsletter <newsletter@stb-verband.example>",
+      "grund": "kein Mandant über der Zuordnungs-Schwelle oder Gleichstand zwischen mehreren Mandanten"
+    },
+    {
+      "mail_id": "mail-008",
+      "betreff": "Allgemeine Anfrage",
+      "von": "Unbekannt <kontakt@drittfirma.example>",
+      "grund": "kein Mandant über der Zuordnungs-Schwelle oder Gleichstand zwischen mehreren Mandanten"
+    }
+  ]
+}

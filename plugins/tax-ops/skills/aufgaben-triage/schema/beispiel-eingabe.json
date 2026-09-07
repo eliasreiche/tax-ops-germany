@@ -1,0 +1,91 @@
+{
+  "mails": [
+    {
+      "id": "mail-001",
+      "datum": "2026-08-10",
+      "von": "Finanzamt Beispielstadt <poststelle@fa-beispielstadt.example>",
+      "betreff": "Steuerbescheid Backstube Sonnenschein GmbH",
+      "text": "Sehr geehrte Damen und Herren, anbei erhalten Sie den Steuerbescheid für die Backstube Sonnenschein GmbH. Bescheid vom 10.08.2026. Rechtsbehelfsbelehrung siehe Anlage. Mit freundlichen Gruessen, Finanzamt Beispielstadt"
+    },
+    {
+      "id": "mail-002",
+      "datum": "2026-09-01",
+      "von": "Finanzamt Beispielstadt <poststelle@fa-beispielstadt.example>",
+      "betreff": "Prüfungsanordnung Muster-Handel KG",
+      "text": "Hiermit ordnen wir bei der Muster-Handel KG eine Außenprüfung gemäß § 196 AO an. Der Prüfungsbeginn wird gesondert mitgeteilt."
+    },
+    {
+      "id": "mail-003",
+      "datum": "2026-09-05",
+      "von": "Vollstreckungsstelle <vollstreckung@fa-beispielstadt.example>",
+      "betreff": "Mahnung Umsatzsteuer Muster-Handel KG",
+      "text": "Wir mahnen die rückständige Umsatzsteuer der Muster-Handel KG an. Sollte keine Zahlung erfolgen, droht eine Vollstreckungsankündigung."
+    },
+    {
+      "id": "mail-004",
+      "datum": "2026-09-06",
+      "von": "Finanzamt Beispielstadt <poststelle@fa-beispielstadt.example>",
+      "betreff": "Vorauszahlungsbescheid Backstube Sonnenschein GmbH",
+      "text": "Wir setzen die Einkommensteuer-Vorauszahlung für das laufende Jahr neu fest. Vorauszahlungsbescheid vom 06.09.2026 liegt bei."
+    },
+    {
+      "id": "mail-005",
+      "datum": "2026-09-07",
+      "von": "Petra Beispiel <p.beispiel@backstube-sonnenschein.example>",
+      "betreff": "Frage zu den Lohnunterlagen",
+      "text": "Guten Tag, koennen Sie mir bitte sagen, welche Lohnunterlagen fuer August noch fehlen?"
+    },
+    {
+      "id": "mail-006",
+      "datum": "2026-09-07",
+      "von": "Newsletter <newsletter@stb-verband.example>",
+      "betreff": "Rundschreiben September 2026",
+      "text": "Dies ist unser monatliches Rundschreiben mit Neuigkeiten aus dem Steuerrecht, nur zur Kenntnisnahme."
+    },
+    {
+      "id": "mail-007",
+      "datum": "2026-09-08",
+      "von": "Finanzamt Beispielstadt <poststelle@fa-beispielstadt.example>",
+      "betreff": "Steuerbescheid Muster-Handel KG",
+      "text": "Anbei der Steuerbescheid der Muster-Handel KG. Bescheid vom 01.09.2026, alternativ Datum 03.09.2026 laut Poststempel."
+    },
+    {
+      "id": "mail-008",
+      "datum": "2026-09-08",
+      "von": "Unbekannt <kontakt@drittfirma.example>",
+      "betreff": "Allgemeine Anfrage",
+      "text": "Wir haetten gerne ein Angebot fuer steuerliche Beratung."
+    }
+  ],
+  "mandanten": [
+    {
+      "name": "Backstube Sonnenschein GmbH",
+      "mandantennummer": "12/345/67890",
+      "aliasse": ["backstube-sonnenschein.example"]
+    },
+    {
+      "name": "Muster-Handel KG",
+      "mandantennummer": "23/456/78901",
+      "aliasse": ["muster-handel.example"]
+    }
+  ],
+  "offene_aufgaben": [
+    {
+      "id": "aufgabe-001",
+      "mandant": "Backstube Sonnenschein GmbH",
+      "titel": "Lohnunterlagen August anfordern",
+      "angelegt": "2026-08-28",
+      "thread_id": "thread-lohnunterlagen-001"
+    }
+  ],
+  "gesendet": [
+    {
+      "datum": "2026-09-07",
+      "an": "p.beispiel@backstube-sonnenschein.example",
+      "betreff": "AW: Lohnunterlagen August anfordern",
+      "thread_id": "thread-lohnunterlagen-001"
+    }
+  ],
+  "bundesland": "NW",
+  "heute": "2026-09-08"
+}

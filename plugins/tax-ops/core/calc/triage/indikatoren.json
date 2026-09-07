@@ -1,0 +1,159 @@
+{
+  "stand": "2026-09-08",
+  "hinweis": "Fristindikator-Katalog des Skills 'aufgaben-triage'. Substring-Suche (case-insensitiv) über Betreff+Text — Begriffe sind absichtlich spezifisch gehalten, um Falschzuordnungen zu vermeiden (siehe rechner.py:erkenne_indikatoren, längster Begriff zuerst). Jede Zeile ist gegen die Primärquelle geprüft (norm/quelle_url/geprueft_am) — keine freihändig ergänzte Norm. Die rechtliche Würdigung (welche Frist im Einzelfall gilt, ob eine Vollstreckung droht) bleibt beim Berufsträger; dieser Katalog liefert nur eine Standard-Dringlichkeit als Ausgangspunkt für die Prioritäts-Matrix.",
+  "indikatoren": [
+    {
+      "begriff": "steuerbescheid",
+      "kategorie": "bescheid_einspruch",
+      "norm": "§ 355 Abs. 1 AO",
+      "fristart": "einspruchsfrist",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__355.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "bescheid",
+      "kategorie": "bescheid_einspruch",
+      "norm": "§ 355 Abs. 1 AO",
+      "fristart": "einspruchsfrist",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__355.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "prüfungsanordnung",
+      "kategorie": "pruefungsanordnung",
+      "norm": "§ 196 AO",
+      "fristart": "aussenpruefung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__196.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "außenprüfung",
+      "kategorie": "pruefungsanordnung",
+      "norm": "§ 196 AO",
+      "fristart": "aussenpruefung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__196.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "gelegenheit zur stellungnahme",
+      "kategorie": "anhoerung",
+      "norm": "§ 91 AO",
+      "fristart": "anhoerung",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__91.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "anhörung",
+      "kategorie": "anhoerung",
+      "norm": "§ 91 AO",
+      "fristart": "anhoerung",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__91.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "vollstreckungsankündigung",
+      "kategorie": "mahnung_vollstreckung",
+      "norm": "§ 259 AO",
+      "fristart": "vollstreckung",
+      "standard_dringlichkeit": "sofort",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__259.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "mahnung",
+      "kategorie": "mahnung_vollstreckung",
+      "norm": "§ 259 AO",
+      "fristart": "vollstreckung",
+      "standard_dringlichkeit": "sofort",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__259.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "vorauszahlungsbescheid",
+      "kategorie": "vorauszahlungsbescheid",
+      "norm": "§ 37 Abs. 3 EStG",
+      "fristart": "vorauszahlung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/estg/__37.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "schätzungsandrohung",
+      "kategorie": "erinnerung_schaetzung",
+      "norm": "§ 162 AO",
+      "fristart": "schaetzung",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__162.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "erinnerung zur abgabe",
+      "kategorie": "erinnerung_schaetzung",
+      "norm": "§ 162 AO",
+      "fristart": "schaetzung",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__162.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "fragebogen zur steuerlichen erfassung",
+      "kategorie": "fragebogen",
+      "norm": "§ 138 AO",
+      "fristart": "erfassung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__138.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "fragebogen",
+      "kategorie": "fragebogen",
+      "norm": "§ 138 AO",
+      "fristart": "erfassung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__138.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "betriebsprüfung der deutschen rentenversicherung",
+      "kategorie": "lohn_sozialversicherung_pruefung",
+      "norm": "§ 28p SGB IV",
+      "fristart": "sv_pruefung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/sgb_4/__28p.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "sozialversicherungsprüfung",
+      "kategorie": "lohn_sozialversicherung_pruefung",
+      "norm": "§ 28p SGB IV",
+      "fristart": "sv_pruefung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/sgb_4/__28p.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "umsatzsteuer-sonderprüfung",
+      "kategorie": "ust_sonderpruefung_nachschau",
+      "norm": "§ 27b UStG",
+      "fristart": "nachschau",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ustg_1980/__27b.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "umsatzsteuer-nachschau",
+      "kategorie": "ust_sonderpruefung_nachschau",
+      "norm": "§ 27b UStG",
+      "fristart": "nachschau",
+      "standard_dringlichkeit": "hoch",
+      "quelle_url": "https://www.gesetze-im-internet.de/ustg_1980/__27b.html",
+      "geprueft_am": "2026-09-08"
+    }
+  ]
+}
