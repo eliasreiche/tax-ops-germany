@@ -138,21 +138,39 @@
       "geprueft_am": "2026-09-08"
     },
     {
-      "begriff": "umsatzsteuer-sonderprüfung",
-      "kategorie": "ust_sonderpruefung_nachschau",
+      "begriff": "umsatzsteuer-nachschau",
+      "kategorie": "ust_nachschau",
       "norm": "§ 27b UStG",
       "fristart": "nachschau",
-      "standard_dringlichkeit": "hoch",
+      "standard_dringlichkeit": "sofort",
       "quelle_url": "https://www.gesetze-im-internet.de/ustg_1980/__27b.html",
       "geprueft_am": "2026-09-08"
     },
     {
-      "begriff": "umsatzsteuer-nachschau",
-      "kategorie": "ust_sonderpruefung_nachschau",
+      "begriff": "nachschau",
+      "kategorie": "ust_nachschau",
       "norm": "§ 27b UStG",
       "fristart": "nachschau",
-      "standard_dringlichkeit": "hoch",
+      "standard_dringlichkeit": "sofort",
       "quelle_url": "https://www.gesetze-im-internet.de/ustg_1980/__27b.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "umsatzsteuer-sonderprüfung",
+      "kategorie": "ust_sonderpruefung",
+      "norm": "§ 193 AO i. V. m. § 196 AO",
+      "fristart": "aussenpruefung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__193.html",
+      "geprueft_am": "2026-09-08"
+    },
+    {
+      "begriff": "ust-sonderprüfung",
+      "kategorie": "ust_sonderpruefung",
+      "norm": "§ 193 AO i. V. m. § 196 AO",
+      "fristart": "aussenpruefung",
+      "standard_dringlichkeit": "normal",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__196.html",
       "geprueft_am": "2026-09-08"
     }
   ]

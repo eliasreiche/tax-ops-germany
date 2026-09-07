@@ -19,7 +19,8 @@ PROBEN = {
     "erinnerung_schaetzung": "Wir drohen eine Schätzungsandrohung an.",
     "fragebogen": "Bitte füllen Sie den Fragebogen aus.",
     "lohn_sozialversicherung_pruefung": "Es folgt eine Sozialversicherungsprüfung.",
-    "ust_sonderpruefung_nachschau": "Es erfolgt eine Umsatzsteuer-Nachschau.",
+    "ust_nachschau": "Es erfolgt eine Umsatzsteuer-Nachschau.",
+    "ust_sonderpruefung": "Es steht eine Umsatzsteuer-Sonderprüfung an.",
 }
 
 

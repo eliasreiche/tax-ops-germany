@@ -1,6 +1,6 @@
 ---
 name: aufgaben-triage
-description: "Priorisiert den Posteingang einer Steuerkanzlei: ordnet Mails deterministisch Mandanten zu (Domain/Mandantennummer/Name/Alias/Betreff, core/calc/matching S1-S4), erkennt Fristindikatoren (Steuerbescheid, Prüfungsanordnung, Anhörung, Mahnung/Vollstreckung, Vorauszahlungsbescheid, Schätzungsandrohung, Fragebogen, SV-Prüfung, USt-Nachschau), berechnet bei Steuerbescheiden die Einspruchsfrist über core/calc/ao_fristen und schlägt vor, welche offenen Aufgaben durch eine gesendete Antwort vermutlich erledigt sind. Triggert bei Posteingang priorisieren, Aufgaben-Triage, E-Mails sortieren, welche Mail ist dringend, offene Aufgaben abgleichen. Reine Organisationsvorschläge — keine Fristenkontrolle, kein Autoversand, kein automatisches Austragen."
+description: "Priorisiert den Posteingang einer Steuerkanzlei: ordnet Mails deterministisch Mandanten zu (Domain/Mandantennummer/Name/Alias/Betreff, core/calc/matching S1-S4), erkennt Fristindikatoren (Steuerbescheid, Prüfungsanordnung, Anhörung, Mahnung/Vollstreckung, Vorauszahlungsbescheid, Schätzungsandrohung, Fragebogen, SV-Prüfung, USt-Nachschau, USt-Sonderprüfung), berechnet bei Steuerbescheiden die Einspruchsfrist über core/calc/ao_fristen und schlägt vor, welche offenen Aufgaben durch eine gesendete Antwort vermutlich erledigt sind. Triggert bei Posteingang priorisieren, Aufgaben-Triage, E-Mails sortieren, welche Mail ist dringend, offene Aufgaben abgleichen. Reine Organisationsvorschläge — keine Fristenkontrolle, kein Autoversand, kein automatisches Austragen."
 status: beta
 welle: 6
 bereich: posteingang
@@ -123,7 +123,8 @@ Prioritäts-Matrix bei.
 | `erinnerung_schaetzung` | „Erinnerung zur Abgabe", „Schätzungsandrohung" | [§ 162 AO](https://www.gesetze-im-internet.de/ao_1977/__162.html) | hoch |
 | `fragebogen` | „Fragebogen zur steuerlichen Erfassung" | [§ 138 AO](https://www.gesetze-im-internet.de/ao_1977/__138.html) | normal |
 | `lohn_sozialversicherung_pruefung` | „Betriebsprüfung der Deutschen Rentenversicherung", „Sozialversicherungsprüfung" | [§ 28p SGB IV](https://www.gesetze-im-internet.de/sgb_4/__28p.html) | normal |
-| `ust_sonderpruefung_nachschau` | „Umsatzsteuer-Sonderprüfung", „Umsatzsteuer-Nachschau" | [§ 27b UStG](https://www.gesetze-im-internet.de/ustg_1980/__27b.html) | hoch |
+| `ust_nachschau` | „Umsatzsteuer-Nachschau", „Nachschau" | [§ 27b UStG](https://www.gesetze-im-internet.de/ustg_1980/__27b.html) | sofort (unangekündigt) |
+| `ust_sonderpruefung` | „Umsatzsteuer-Sonderprüfung", „USt-Sonderprüfung" | [§ 193 AO](https://www.gesetze-im-internet.de/ao_1977/__193.html) i. V. m. [§ 196 AO](https://www.gesetze-im-internet.de/ao_1977/__196.html) | normal (wie Prüfungsanordnung) |
 
 ## Output-Format
 

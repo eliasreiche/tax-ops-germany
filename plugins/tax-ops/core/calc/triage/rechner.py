@@ -57,7 +57,7 @@ from ao_fristen.rechner import (  # noqa: E402
     berechne_einspruchsfrist,
 )
 from datum import kanons_in_zeile  # noqa: E402
-from matching import STUFE_MOEGLICH, STUFE_TREFFER, vergleiche_namen  # noqa: E402
+from matching import STUFE_MOEGLICH, STUFE_TREFFER, tokenisiere, vergleiche_namen  # noqa: E402
 from rechenschritt import RechenSchritt  # noqa: E402
 
 _HIER = Path(__file__).resolve().parent
@@ -99,10 +99,12 @@ class Mandant:
 
 @dataclass
 class ZuordnungTreffer:
-    stufe: str        # "domain" | "mandantennummer" | "S1".."S4"
+    stufe: str        # "domain" | "mandantennummer" | "S1".."S4" | "mehrdeutig" | "Name im Text"
     kategorie: str    # "treffer" | "moeglicher_treffer"
     score: float
     begruendung: str
+    # bei stufe == "mehrdeutig": alle Namen der infrage kommenden Mandanten.
+    kandidaten: list[str] | None = None
 
 
 def _ws_kanon(wert: str) -> str:
@@ -144,15 +146,23 @@ def _mandantennummer_treffer(mandant: Mandant, betreff: str, text: str) -> Zuord
     return None
 
 
+def _namens_kandidaten(mandant: Mandant) -> list[str]:
+    """Name + Kürzel (als Alias behandelt, siehe Mandant.kuerzel) + Aliasse —
+    einzige Stelle, die alle Namensvarianten eines Mandanten aufzählt, damit
+    Namensmatching (S1-S4) und Mehrdeutigkeits-Check (a) dieselbe Liste
+    verwenden."""
+    return [mandant.name, *([mandant.kuerzel] if mandant.kuerzel else []), *mandant.aliasse]
+
+
 def _bester_namens_treffer(mandant: Mandant, von_name: str, betreff: str,
                            schwelle: float) -> ZuordnungTreffer | None:
-    """Vergleicht Name + Aliasse gegen Absender-Name und Betreff über
+    """Vergleicht Name + Kürzel + Aliasse gegen Absender-Name und Betreff über
     `matching.vergleiche_namen` (S1-S4); liefert den besten Treffer. Ein
     Betreff ist Fließtext, keine kurze Namensangabe — S2 (Token-Teilmenge)
     fängt den typischen Fall ("Re: Unterlagen Müller GmbH" enthält alle
     Namens-Tokens von "Müller GmbH" als Teilmenge)."""
     kandidaten: list[tuple[str, str, Any]] = []
-    for name in [mandant.name, *mandant.aliasse]:
+    for name in _namens_kandidaten(mandant):
         if not name:
             continue
         for feldname, feldtext in (("absender_name", von_name), ("betreff", betreff)):
@@ -170,6 +180,61 @@ def _bester_namens_treffer(mandant: Mandant, von_name: str, betreff: str,
         f"'{name}' vs. Feld '{feldname}': {treffer.begruendung}")
 
 
+def _mehrdeutige_namens_kandidaten(von_name: str, betreff: str,
+                                   mandanten: list[Mandant]) -> list[Mandant]:
+    """Mandanten, deren Name/Kürzel/Alias-Tokenmenge mit der Tokenmenge des
+    Suchbegriffs (Absender-Name ODER Betreff) in einer Teilmengen-Beziehung
+    steht: ein bloßer Namensbestandteil wie "Mueller" ist Teilmenge der
+    Tokenmenge SOWOHL von "Müller GmbH" ({mueller}) ALS AUCH von "Müller &
+    Sohn KG" ({mueller, sohn}) — dann darf keiner der beiden allein deshalb
+    gewinnen, weil er zufällig die exaktere/kürzere Tokenmenge hat (S1 vs.
+    S2, siehe Docstring `zuordne_mandant`)."""
+    treffer: dict[str, Mandant] = {}
+    for feldtext in (von_name, betreff):
+        suchtokens = frozenset(tokenisiere(feldtext or ""))
+        if not suchtokens:
+            continue
+        for mandant in mandanten:
+            for name in _namens_kandidaten(mandant):
+                tokens = frozenset(tokenisiere(name))
+                if tokens and (tokens <= suchtokens or suchtokens <= tokens):
+                    treffer[mandant.name] = mandant
+                    break
+    return list(treffer.values())
+
+
+_NICHT_ALPHANUMERISCH_LEICHT_RE = re.compile(r"[^a-z0-9\s]")
+_UMLAUT_TABELLE_LEICHT = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
+
+
+def _leicht_normalisiert(text: str) -> str:
+    """Kleinschreibung + Umlaut-Transliteration + Interpunktion -> Leerzeichen
+    — bewusst OHNE Rechtsform-Stripping (anders als `matching.normalisiere`):
+    für den Volltext-Beleg (b) muss die Rechtsform erhalten bleiben, sonst
+    verschwindet der Unterschied zwischen "Müller GmbH" und "Müller & Sohn
+    KG" im Text."""
+    arbeitstext = (text or "").lower().translate(_UMLAUT_TABELLE_LEICHT)
+    arbeitstext = _NICHT_ALPHANUMERISCH_LEICHT_RE.sub(" ", arbeitstext)
+    return _ws_kanon(arbeitstext)
+
+
+def _namens_treffer_im_text(kandidaten: list[Mandant], text: str
+                            ) -> tuple[Mandant, ZuordnungTreffer] | None:
+    """Löst eine Mehrdeutigkeit (a) auf, wenn der vollständige, normalisierte
+    Mandantenname als wörtlicher Beleg im Mailtext steht und GENAU EIN
+    Kandidat trifft (b)."""
+    text_norm = _leicht_normalisiert(text)
+    if not text_norm:
+        return None
+    treffer = [m for m in kandidaten if _leicht_normalisiert(m.name) in text_norm]
+    if len(treffer) != 1:
+        return None
+    mandant = treffer[0]
+    return mandant, ZuordnungTreffer(
+        "Name im Text", STUFE_TREFFER, 1.0,
+        f"vollständiger Mandantenname '{mandant.name}' wörtlich im Mailtext gefunden")
+
+
 def zuordne_mandant(von_name: str, von_adresse: str, betreff: str, text: str,
                     mandanten: list[Mandant],
                     schwelle: float = SCHWELLE_MOEGLICH_DEFAULT
@@ -177,7 +242,17 @@ def zuordne_mandant(von_name: str, von_adresse: str, betreff: str, text: str,
     """Bester Mandanten-Treffer für ein Dokument (Mail oder gesendete Mail),
     oder `None` — entweder weil kein Mandant über der Schwelle liegt, oder
     weil zwei Mandanten auf derselben besten Stufe gleichauf liegen
-    (Enthaltung statt Raten, wie Z2N in `core/calc/zuordnung`)."""
+    (Enthaltung statt Raten, wie Z2N in `core/calc/zuordnung`).
+
+    Sonderfall gemeinsamer Namensbestandteil (z. B. "Müller GmbH" und
+    "Müller & Sohn KG"): ein Namenstreffer über nur "Mueller" liegt für
+    BEIDE vor (S1 exakt für die kürzere, S2 Teilmenge für die längere) —
+    ohne Weiteres würde die kürzere Firma allein wegen der spezifischeren
+    Stufe gewinnen, obwohl der Suchbegriff genauso gut zur anderen passt.
+    In diesem Fall: kein definitiver Treffer, außer der volle Mandantenname
+    steht wörtlich im Mailtext (`_namens_treffer_im_text`); ein eindeutiger
+    Domain-/Mandantennummer-Treffer bleibt davon unberührt (stärkstes
+    Signal, geht dieser Prüfung nie durch)."""
     treffer_je_mandant: list[tuple[Mandant, ZuordnungTreffer]] = []
     for mandant in mandanten:
         treffer = (_domain_treffer(mandant, von_adresse)
@@ -197,6 +272,20 @@ def zuordne_mandant(von_name: str, von_adresse: str, betreff: str, text: str,
         treffer_je_mandant[1] if len(treffer_je_mandant) > 1 else None)
     if zweitbester is not None and sortkey(bester) == sortkey(zweitbester):
         return None  # Gleichstand -> Enthaltung, nie geraten
+
+    if bester[1].stufe in (STUFE_DOMAIN, STUFE_MANDANTENNUMMER):
+        return bester  # (c) eindeutiger Identifikator -> stärkstes Signal
+
+    if bester[1].stufe in ("S1", "S2"):
+        mehrdeutige = _mehrdeutige_namens_kandidaten(von_name, betreff, mandanten)
+        if len(mehrdeutige) > 1:
+            texttreffer = _namens_treffer_im_text(mehrdeutige, text)  # (b)
+            if texttreffer is not None:
+                return texttreffer
+            return bester[0], ZuordnungTreffer(
+                "mehrdeutig", STUFE_MOEGLICH, bester[1].score,
+                "mehrdeutig: gemeinsamer Namensbestandteil",
+                kandidaten=sorted(m.name for m in mehrdeutige))
     return bester
 
 

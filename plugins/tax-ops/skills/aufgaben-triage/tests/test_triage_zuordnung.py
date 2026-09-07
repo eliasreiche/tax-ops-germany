@@ -81,3 +81,47 @@ def test_unzugeordnet_bei_gleichstand():
     m = [Mandant(name="Firma A"), Mandant(name="Firma B")]
     treffer = zuordne_mandant("Firma A und Firma B", "x@nirgends.example", "", "", m)
     assert treffer is None
+
+
+# --------------------------------------------------------------------------
+# Gemeinsamer Namensbestandteil ("Müller GmbH" vs. "Müller & Sohn KG"): ein
+# bloßer Nachname/Firmenkern darf nicht allein wegen der spezifischeren Stufe
+# (S1 vs. S2) auf die kürzere Firma zuschlagen — siehe Docstring von
+# `zuordne_mandant`.
+# --------------------------------------------------------------------------
+
+_MUELLER_MANDANTEN = [Mandant(name="Müller GmbH"), Mandant(name="Müller & Sohn KG")]
+
+
+def test_gemeinsamer_namensbestandteil_text_nennt_kg():
+    treffer = zuordne_mandant(
+        "Mueller", "inh@mueller-sohn.example", "Steuerliche Frage",
+        "Guten Tag, wir von Mueller & Sohn KG haben eine Frage.", _MUELLER_MANDANTEN)
+    assert treffer is not None
+    mandant, t = treffer
+    assert mandant.name == "Müller & Sohn KG"
+    assert t.stufe == "Name im Text"
+    assert t.kategorie == "treffer"
+
+
+def test_gemeinsamer_namensbestandteil_ohne_textbeleg_ist_moeglicher_treffer():
+    treffer = zuordne_mandant(
+        "Mueller", "inh@mueller-sohn.example", "Steuerliche Frage",
+        "Guten Tag, wir haben eine Frage zur Steuer.", _MUELLER_MANDANTEN)
+    assert treffer is not None
+    _, t = treffer
+    assert t.stufe == "mehrdeutig"
+    assert t.kategorie == "moeglicher_treffer"
+    assert t.begruendung == "mehrdeutig: gemeinsamer Namensbestandteil"
+    assert set(t.kandidaten) == {"Müller GmbH", "Müller & Sohn KG"}
+
+
+def test_gemeinsamer_namensbestandteil_text_nennt_gmbh():
+    treffer = zuordne_mandant(
+        "Mueller", "inh@mueller-sohn.example", "Steuerliche Frage",
+        "Guten Tag, wir von Müller GmbH haben eine Frage.", _MUELLER_MANDANTEN)
+    assert treffer is not None
+    mandant, t = treffer
+    assert mandant.name == "Müller GmbH"
+    assert t.stufe == "Name im Text"
+    assert t.kategorie == "treffer"
