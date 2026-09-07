@@ -103,6 +103,7 @@ sind branchenunabhängig und direkt einsetzbar:
 <!-- skill-status:start -->
 | Skill | Bereich | Welle | Status |
 |---|---|---|---|
+| [`ao-fristenrechner`](plugins/tax-ops/skills/ao-fristenrechner/SKILL.md) | `fristen` | 6 | 🧪 `beta` |
 | [`stbvv-rechner`](plugins/tax-ops/skills/stbvv-rechner/SKILL.md) | `verguetung` | 6 | 🧪 `beta` |
 <!-- skill-status:ende -->
 

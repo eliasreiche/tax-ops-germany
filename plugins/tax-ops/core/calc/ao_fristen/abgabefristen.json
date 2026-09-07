@@ -1,0 +1,38 @@
+{
+  "stand": "2026-09-08",
+  "hinweis": "Verlängerte Abgabefristen nach Art. 97 § 36 Abs. 3 EGAO (Fassung 23.06.2022) für VZ 2020-2024 — wörtlich aus dossier-ao-fristen-stbvv-2026-09-08.md, Abschnitt 5, übernommen (dort als 'belegt' geführt). Die Nenndaten sind die gesetzlichen Ersatzfristen VOR der Wochenend-/Feiertagsverschiebung nach § 108 Abs. 3 AO — die Verschiebung rechnet der Executor mit dem eingegebenen Bundesland. Für VZ ab 2025 gilt keine EGAO-Sonderregel mehr; der Executor rechnet dann die Regelfrist direkt aus § 149 Abs. 2/3 AO (§ 108 Abs. 3 AO ebenso angewendet).",
+  "quelle_url": "https://www.gesetze-im-internet.de/aoeg_1977/art_97__36.html",
+  "geprueft_am": "2026-09-08",
+  "veranlagungszeitraeume": {
+    "2020": {
+      "nicht_beraten": "2021-10-31",
+      "beraten": "2022-08-31",
+      "land_forstwirt": "2023-01-31",
+      "norm": "Art. 97 § 36 Abs. 3 Satz 1 Nr. 1 EGAO"
+    },
+    "2021": {
+      "nicht_beraten": "2022-10-31",
+      "beraten": "2023-08-31",
+      "land_forstwirt": "2024-01-31",
+      "norm": "Art. 97 § 36 Abs. 3 Satz 1 Nr. 2 EGAO"
+    },
+    "2022": {
+      "nicht_beraten": "2023-09-30",
+      "beraten": "2024-07-31",
+      "land_forstwirt": "2024-12-31",
+      "norm": "Art. 97 § 36 Abs. 3 Satz 1 Nr. 3 EGAO"
+    },
+    "2023": {
+      "nicht_beraten": "2024-08-31",
+      "beraten": "2025-05-31",
+      "land_forstwirt": "2025-10-31",
+      "norm": "Art. 97 § 36 Abs. 3 Satz 1 Nr. 4 EGAO"
+    },
+    "2024": {
+      "nicht_beraten": "2025-07-31",
+      "beraten": "2026-04-30",
+      "land_forstwirt": "2026-09-30",
+      "norm": "Art. 97 § 36 Abs. 3 Satz 1 Nr. 5 EGAO (letzter EGAO-Fall)"
+    }
+  }
+}

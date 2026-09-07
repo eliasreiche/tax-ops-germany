@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "erzeugt_von": "core/calc/ao_fristen/executor.py",
+    "modus": "verspaetungszuschlag",
+    "quelle_datei": "beispiel-eingabe-verspaetungszuschlag.json",
+    "deterministik": "Alle Datums-/Zahlenwerte in diesem Report sind Executor-Ergebnisse (P3), nicht modellgeneriert."
+  },
+  "modus": "verspaetungszuschlag",
+  "festgesetzte_steuer": "1000",
+  "anzurechnende_betraege": "0",
+  "bemessungsgrundlage": "1000",
+  "fristende": "2026-07-31",
+  "abgabedatum": "2026-10-15",
+  "angefangene_monate": 3,
+  "prozentsatz": "0.0025",
+  "mindestbetrag_je_monat": "25",
+  "hoechstbetrag": "25000",
+  "zuschlag_pro_monat": "25",
+  "zuschlag_gesamt": "75",
+  "hoechstbetrag_erreicht": false,
+  "rechenkette": [
+    {
+      "schritt": 1,
+      "norm": "§ 152 Abs. 5 Satz 2 AO",
+      "beschreibung": "Bemessungsgrundlage: 1000 ./. 0 (anzurechnende Beträge), abgerundet auf volle Euro.",
+      "ergebnis": null,
+      "quelle": "executor"
+    },
+    {
+      "schritt": 2,
+      "norm": "§ 152 Abs. 5 Satz 1 AO",
+      "beschreibung": "Verspätung vom 31.07.2026 (Fristende) bis 15.10.2026 (Abgabedatum): 3 angefangene(r) Monat(e).",
+      "ergebnis": null,
+      "quelle": "executor"
+    },
+    {
+      "schritt": 3,
+      "norm": "§ 152 Abs. 5 Satz 2 AO",
+      "beschreibung": "0,25 % der Bemessungsgrundlage (1000 €) je angefangenem Monat, mindestens 25 € je Monat.",
+      "ergebnis": null,
+      "quelle": "executor"
+    },
+    {
+      "schritt": 4,
+      "norm": "§ 152 Abs. 10 AO",
+      "beschreibung": "Gesamtbetrag 75 €, gedeckelt auf höchstens 25000 €.",
+      "ergebnis": null,
+      "quelle": "executor"
+    }
+  ],
+  "hinweise": [
+    "Pflicht- vs. Ermessensfall (§ 152 Abs. 1 AO / § 152 Abs. 2 Nr. 1, 2 AO, 14/19 Monate nach Ablauf des Kalenderjahres, ggf. zeitweilig verlängert durch Art. 97 § 36 Abs. 3 Nr. 5 EGAO für VZ 2020-2024) wird hier nur als Normenhinweis ausgegeben — die Subsumtion ist Kanzleisache, keine Ermessensbewertung durch diesen Rechner.",
+    "§ 152 Abs. 8 Nr. 1 AO: für monatlich oder vierteljährlich abzugebende Steueranmeldungen (USt-VA, LSt-Anmeldung) gilt Abs. 5 nicht — dieser Rechner ist nur für Jahressteuererklärungen vorgesehen.",
+    "Rundung (Bemessungsgrundlage und Monatsbetrag auf volle Euro abgerundet) ist eine bewusste, konservative Annahme dieses Rechners — im Quellen-Dossier nicht wörtlich belegt (dort mit „…\" gekürzt zitiert)."
+  ],
+  "kalender_termine": [
+    {
+      "datum": "2026-07-31",
+      "titel": "Fristende (Bezugspunkt Verspätungszuschlag)",
+      "norm": "§ 152 Abs. 5 AO"
+    }
+  ],
+  "quelle": "executor"
+}

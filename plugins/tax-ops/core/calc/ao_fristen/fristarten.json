@@ -1,0 +1,32 @@
+{
+  "stand": "2026-09-08",
+  "hinweis": "Vordefinierte Fristarten der Einspruchsfrist als Daten (nicht in Logik hartkodiert). Quelle: dossier-ao-fristen-stbvv-2026-09-08.md, Abschnitt 4. Die rechtliche Einordnung des fristauslösenden Ereignisses (wirksame Bekanntgabe, korrekte/fehlende Rechtsbehelfsbelehrung) bleibt beim Berufsträger.",
+  "fristarten": [
+    {
+      "id": "einspruch",
+      "bezeichnung": "Einspruchsfrist",
+      "norm": "§ 355 Abs. 1 AO",
+      "dauer": 1,
+      "einheit": "monate",
+      "ausloeser": "Bekanntgabe des Verwaltungsakts",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__355.html",
+      "geprueft_am": "2026-09-08",
+      "hinweise": [
+        "Ob die Bekanntgabe wirksam erfolgt ist, prüft der Executor nicht — das Bekanntgabe- bzw. Aufgabe-zur-Post-Datum ist Eingabe und anwaltlich/steuerlich zu bestimmen."
+      ]
+    },
+    {
+      "id": "einspruch_fehlende_belehrung",
+      "bezeichnung": "Einspruchsfrist bei fehlender oder fehlerhafter Rechtsbehelfsbelehrung",
+      "norm": "§ 356 Abs. 2 AO",
+      "dauer": 1,
+      "einheit": "jahre",
+      "ausloeser": "Bekanntgabe des Verwaltungsakts",
+      "quelle_url": "https://www.gesetze-im-internet.de/ao_1977/__356.html",
+      "geprueft_am": "2026-09-08",
+      "hinweise": [
+        "Ob die Rechtsbehelfsbelehrung tatsächlich fehlt oder fehlerhaft ist, prüft der Executor nicht — das ist Kanzleisache (§ 356 Abs. 1, 2 AO)."
+      ]
+    }
+  ]
+}

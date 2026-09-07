@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "erzeugt_von": "core/calc/ao_fristen/executor.py",
+    "modus": "abgabefrist",
+    "quelle_datei": "beispiel-eingabe-abgabefrist.json",
+    "deterministik": "Alle Datums-/Zahlenwerte in diesem Report sind Executor-Ergebnisse (P3), nicht modellgeneriert."
+  },
+  "modus": "abgabefrist",
+  "veranlagungszeitraum": 2024,
+  "gruppe": "beraten",
+  "bundesland": "NW",
+  "nominal_datum": "2026-04-30",
+  "fristende": "2026-04-30",
+  "verschoben": false,
+  "rechenkette": [
+    {
+      "schritt": 1,
+      "norm": "Art. 97 § 36 Abs. 3 Satz 1 Nr. 5 EGAO (letzter EGAO-Fall)",
+      "beschreibung": "EGAO-Sonderfrist VZ 2024 (beraten): 30.04.2026.",
+      "ergebnis": "2026-04-30",
+      "quelle": "executor"
+    }
+  ],
+  "warnungen": [],
+  "kalender_termine": [
+    {
+      "datum": "2026-04-30",
+      "titel": "Abgabefrist VZ 2024 (beraten)",
+      "norm": "§ 149 Abs. 2/3 AO"
+    }
+  ],
+  "quelle": "executor"
+}

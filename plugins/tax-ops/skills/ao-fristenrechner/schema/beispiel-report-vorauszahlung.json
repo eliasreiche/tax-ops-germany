@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "erzeugt_von": "core/calc/ao_fristen/executor.py",
+    "modus": "vorauszahlung",
+    "quelle_datei": "beispiel-eingabe-vorauszahlung.json",
+    "deterministik": "Alle Datums-/Zahlenwerte in diesem Report sind Executor-Ergebnisse (P3), nicht modellgeneriert."
+  },
+  "modus": "vorauszahlung",
+  "jahr": 2026,
+  "steuerart": "ustva",
+  "bezeichnung": "Umsatzsteuer-Voranmeldung",
+  "norm": "§ 18 Abs. 1 UStG",
+  "bundesland": "NW",
+  "rhythmus": "monatlich",
+  "dauerfristverlaengerung": true,
+  "termine": [
+    {
+      "datum": "2026-03-10",
+      "nominal_datum": "2026-03-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 1/2026",
+      "schonfrist_ende": "2026-03-13"
+    },
+    {
+      "datum": "2026-04-10",
+      "nominal_datum": "2026-04-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 2/2026",
+      "schonfrist_ende": "2026-04-13"
+    },
+    {
+      "datum": "2026-05-11",
+      "nominal_datum": "2026-05-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 3/2026",
+      "schonfrist_ende": "2026-05-14"
+    },
+    {
+      "datum": "2026-06-10",
+      "nominal_datum": "2026-06-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 4/2026",
+      "schonfrist_ende": "2026-06-13"
+    },
+    {
+      "datum": "2026-07-10",
+      "nominal_datum": "2026-07-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 5/2026",
+      "schonfrist_ende": "2026-07-13"
+    },
+    {
+      "datum": "2026-08-10",
+      "nominal_datum": "2026-08-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 6/2026",
+      "schonfrist_ende": "2026-08-13"
+    },
+    {
+      "datum": "2026-09-10",
+      "nominal_datum": "2026-09-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 7/2026",
+      "schonfrist_ende": "2026-09-13"
+    },
+    {
+      "datum": "2026-10-12",
+      "nominal_datum": "2026-10-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 8/2026",
+      "schonfrist_ende": "2026-10-15"
+    },
+    {
+      "datum": "2026-11-10",
+      "nominal_datum": "2026-11-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 9/2026",
+      "schonfrist_ende": "2026-11-13"
+    },
+    {
+      "datum": "2026-12-10",
+      "nominal_datum": "2026-12-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 10/2026",
+      "schonfrist_ende": "2026-12-13"
+    },
+    {
+      "datum": "2027-01-11",
+      "nominal_datum": "2027-01-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 11/2026",
+      "schonfrist_ende": "2027-01-14"
+    },
+    {
+      "datum": "2027-02-10",
+      "nominal_datum": "2027-02-10",
+      "bezeichnung": "Umsatzsteuer-Voranmeldung monatlich-Periode 12/2026",
+      "schonfrist_ende": "2027-02-13"
+    }
+  ],
+  "rechenkette": [
+    {
+      "schritt": 1,
+      "norm": "§ 18 Abs. 1 UStG",
+      "beschreibung": "Umsatzsteuer-Voranmeldung: 10 Tage nach Ablauf des jeweiligen Zeitraums (monatlich).",
+      "ergebnis": null,
+      "quelle": "executor"
+    },
+    {
+      "schritt": 2,
+      "norm": "§ 46 UStDV",
+      "beschreibung": "Dauerfristverlängerung: Fälligkeit um einen Monat verschoben.",
+      "ergebnis": null,
+      "quelle": "executor"
+    },
+    {
+      "schritt": 3,
+      "norm": "§ 108 Abs. 3 AO",
+      "beschreibung": "10.05.2026 (Sonntag) ist Sonntag in Nordrhein-Westfalen — Verschiebung auf den nächsten Werktag.",
+      "ergebnis": "2026-05-11",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 4,
+      "norm": "§ 108 Abs. 3 AO",
+      "beschreibung": "10.10.2026 (Samstag) ist Sonnabend (Samstag) in Nordrhein-Westfalen — Verschiebung auf den nächsten Werktag.",
+      "ergebnis": "2026-10-11",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 5,
+      "norm": "§ 108 Abs. 3 AO",
+      "beschreibung": "11.10.2026 (Sonntag) ist Sonntag in Nordrhein-Westfalen — Verschiebung auf den nächsten Werktag.",
+      "ergebnis": "2026-10-12",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 6,
+      "norm": "§ 108 Abs. 3 AO",
+      "beschreibung": "10.01.2027 (Sonntag) ist Sonntag in Nordrhein-Westfalen — Verschiebung auf den nächsten Werktag.",
+      "ergebnis": "2027-01-11",
+      "quelle": "executor"
+    }
+  ],
+  "warnungen": [],
+  "hinweise": [
+    "Schonfrist (3 Tage, § 240 Abs. 3 Satz 1 AO) je Termin als 'schonfrist_ende' ausgewiesen — gilt nicht bei Barzahlung (sofort fällig) oder Scheckzahlung (§ 240 Abs. 3 Satz 2 i. V. m. § 224 Abs. 2 Nr. 1 AO)."
+  ],
+  "kalender_termine": [
+    {
+      "datum": "2026-03-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 1/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-04-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 2/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-05-11",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 3/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-06-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 4/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-07-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 5/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-08-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 6/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-09-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 7/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-10-12",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 8/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-11-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 9/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2026-12-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 10/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2027-01-11",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 11/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    },
+    {
+      "datum": "2027-02-10",
+      "titel": "Umsatzsteuer-Voranmeldung monatlich-Periode 12/2026",
+      "norm": "§ 18 Abs. 1 UStG"
+    }
+  ],
+  "quelle": "executor"
+}

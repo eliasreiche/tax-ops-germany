@@ -1,0 +1,73 @@
+{
+  "stand": "2026-09-08",
+  "hinweis": "Termine aus dossier-ao-fristen-stbvv-2026-09-08.md, Abschnitt 8 (alle Zeilen dort 'belegt'). Jeder Termin wird vom Executor nach § 108 Abs. 3 AO verschoben (Ausnahme 'sv': eigenständiger Begriff 'Bankarbeitstag', kein § 108-Verweis laut Dossier). Die Wahl zwischen monatlichem/vierteljährlichem/jährlichem Rhythmus bei USt-VA und LSt-Anmeldung (abhängig von der Vorjahressteuer, § 18 Abs. 2 UStG / § 41a Abs. 2 EStG) ist Kanzleiwissen und wird als Eingabe verlangt, nicht aus einer Steuerhöhe hergeleitet (bewusste Vereinfachung).",
+  "steuerarten": {
+    "est": {
+      "bezeichnung": "Einkommensteuer-Vorauszahlung",
+      "norm": "§ 37 Abs. 1 Satz 1 EStG",
+      "quelle_url": "https://www.gesetze-im-internet.de/estg/__37.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "fixe_termine",
+      "termine": [[3, 10], [6, 10], [9, 10], [12, 10]],
+      "dauerfristverlaengerung_moeglich": false
+    },
+    "kst": {
+      "bezeichnung": "Körperschaftsteuer-Vorauszahlung",
+      "norm": "§ 31 Abs. 1 KStG i. V. m. § 37 Abs. 1 Satz 1 EStG",
+      "quelle_url": "https://www.gesetze-im-internet.de/kstg_1977/__31.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "fixe_termine",
+      "termine": [[3, 10], [6, 10], [9, 10], [12, 10]],
+      "dauerfristverlaengerung_moeglich": false
+    },
+    "gewst": {
+      "bezeichnung": "Gewerbesteuer-Vorauszahlung",
+      "norm": "§ 19 Abs. 1 Satz 1 GewStG",
+      "quelle_url": "https://www.gesetze-im-internet.de/gewstg/__19.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "fixe_termine",
+      "termine": [[2, 15], [5, 15], [8, 15], [11, 15]],
+      "dauerfristverlaengerung_moeglich": false
+    },
+    "ustva": {
+      "bezeichnung": "Umsatzsteuer-Voranmeldung",
+      "norm": "§ 18 Abs. 1 UStG",
+      "quelle_url": "https://www.gesetze-im-internet.de/ustg_1980/__18.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "periodisch",
+      "frist_tage": 10,
+      "erlaubte_rhythmen": ["monatlich", "quartalsweise"],
+      "dauerfristverlaengerung_moeglich": true,
+      "dauerfristverlaengerung_norm": "§ 46 UStDV",
+      "dauerfristverlaengerung_quelle_url": "https://www.gesetze-im-internet.de/ustdv_1980/__46.html"
+    },
+    "lst": {
+      "bezeichnung": "Lohnsteuer-Anmeldung",
+      "norm": "§ 41a Abs. 1 Satz 1 EStG",
+      "quelle_url": "https://www.gesetze-im-internet.de/estg/__41a.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "periodisch",
+      "frist_tage": 10,
+      "erlaubte_rhythmen": ["monatlich", "vierteljaehrlich", "jaehrlich"],
+      "dauerfristverlaengerung_moeglich": false
+    },
+    "zm": {
+      "bezeichnung": "Zusammenfassende Meldung",
+      "norm": "§ 18a Abs. 1 Satz 1 UStG",
+      "quelle_url": "https://www.gesetze-im-internet.de/ustg_1980/__18a.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "periodisch",
+      "frist_tage": 25,
+      "erlaubte_rhythmen": ["monatlich"],
+      "dauerfristverlaengerung_moeglich": false
+    },
+    "sv": {
+      "bezeichnung": "Fälligkeit der Sozialversicherungsbeiträge",
+      "norm": "§ 23 Abs. 1 Satz 2 SGB IV",
+      "quelle_url": "https://www.gesetze-im-internet.de/sgb_4/__23.html",
+      "geprueft_am": "2026-09-08",
+      "typ": "drittletzter_bankarbeitstag",
+      "dauerfristverlaengerung_moeglich": false
+    }
+  }
+}

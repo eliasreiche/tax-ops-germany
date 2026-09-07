@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "erzeugt_von": "core/calc/ao_fristen/executor.py",
+    "modus": "einspruch",
+    "quelle_datei": "beispiel-eingabe-einspruch.json",
+    "deterministik": "Alle Datums-/Zahlenwerte in diesem Report sind Executor-Ergebnisse (P3), nicht modellgeneriert."
+  },
+  "modus": "einspruch",
+  "bekanntgabe_datum": "2026-02-07",
+  "aufgabe_zur_post_datum": "2026-02-03",
+  "fiktion_verschieben": false,
+  "bundesland": "BY",
+  "jahresfrist": false,
+  "fristbeginn": "2026-02-08",
+  "fristende_rechnerisch": "2026-03-07",
+  "fristende": "2026-03-09",
+  "verschoben": true,
+  "rechenkette": [
+    {
+      "schritt": 1,
+      "norm": "§ 122 Abs. 2 Nr. 1 AO",
+      "beschreibung": "Aufgabe zur Post am 03.02.2026 (Dienstag): Bekanntgabe gilt am vierten Tage danach als bewirkt (Zugangsvermutung, gilt seit 01.01.2025).",
+      "ergebnis": "2026-02-07",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 2,
+      "norm": "§ 108 Abs. 1 AO i. V. m. § 187 Abs. 1 BGB",
+      "beschreibung": "Tag der Bekanntgabe (07.02.2026, Samstag) wird nicht mitgerechnet; Fristbeginn am Folgetag.",
+      "ergebnis": "2026-02-08",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 3,
+      "norm": "§ 355 Abs. 1 AO, § 108 Abs. 1 AO i. V. m. § 188 Abs. 2 BGB",
+      "beschreibung": "Monatsfrist: Ende mit Ablauf des Tages, der durch seine Zahl dem Tag der Bekanntgabe entspricht.",
+      "ergebnis": "2026-03-07",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 4,
+      "norm": "§ 108 Abs. 3 AO",
+      "beschreibung": "07.03.2026 (Samstag) ist Sonnabend (Samstag) in Bayern — Verschiebung auf den nächsten Werktag.",
+      "ergebnis": "2026-03-08",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 5,
+      "norm": "§ 108 Abs. 3 AO",
+      "beschreibung": "08.03.2026 (Sonntag) ist Sonntag in Bayern — Verschiebung auf den nächsten Werktag.",
+      "ergebnis": "2026-03-09",
+      "quelle": "executor"
+    }
+  ],
+  "warnungen": [],
+  "hinweise": [
+    "Fiktionstag nicht verschoben (Default 'fiktion_verschieben=false'): die Übertragung der BFH-Rechtsprechung zur alten Dreitagesfiktion (BFH v. 14.10.2003, IX R 68/98) auf die seit 2025 geltende Viertagesfiktion ist im Quellen-Dossier nicht eigenständig belegt ([unverifiziert]) — mit 'fiktion_verschieben: true' aktivierbar."
+  ],
+  "kalender_termine": [
+    {
+      "datum": "2026-03-09",
+      "titel": "Einspruchsfrist (§ 355 Abs. 1 AO)",
+      "norm": "§ 355 Abs. 1 AO"
+    }
+  ],
+  "quelle": "executor"
+}

@@ -1,0 +1,8 @@
+{
+  "modus": "vorauszahlung",
+  "jahr": 2026,
+  "steuerart": "ustva",
+  "bundesland": "NW",
+  "rhythmus": "monatlich",
+  "dauerfristverlaengerung": true
+}

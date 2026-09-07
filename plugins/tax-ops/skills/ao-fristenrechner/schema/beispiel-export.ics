@@ -1,0 +1,30 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//tax-ops-germany//ao-fristenrechner//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:c81aea5b52b19db0@ao-fristenrechner.tax-ops
+DTSTAMP:20260309T000000Z
+DTSTART;VALUE=DATE:20260309
+DTEND;VALUE=DATE:20260310
+SUMMARY:Einspruchsfrist (§ 355 Abs. 1 AO) — Az. 2026-001
+DESCRIPTION:Norm: § 355 Abs. 1 AO ✅ (verifiziert: aus Executor-Report)\n
+ Termin: 09.03.2026\nVorfrist (3 Tage vorher): 06.03.2026\nHinweis: Fiktion
+ stag nicht verschoben (Default 'fiktion_verschieben=false'): die Übertrag
+ ung der BFH-Rechtsprechung zur alten Dreitagesfiktion (BFH v. 14.10.2003\,
+  IX R 68/98) auf die seit 2025 geltende Viertagesfiktion ist im Quellen-Do
+ ssier nicht eigenständig belegt ([unverifiziert]) — mit 'fiktion_versch
+ ieben: true' aktivierbar.\nZweitkontrolle bleibt zwingend: Dieser Export e
+ rsetzt keinen Fristenkalender mit Vier-Augen-Prinzip der Kanzlei. Import u
+ nd Kontrolle im Zielsystem verantwortet die Kanzlei.
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Vorfrist: Einspruchsfrist (§ 355 Abs. 1 AO) — Az. 2026-001
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
