@@ -1,0 +1,1262 @@
+{
+  "A": {
+    "bezeichnung": "Tabelle A (Beratungstabelle)",
+    "norm": "Anlage 1 StBVV (zu § 10 Abs. 1, § 13, § 21, § 24 StBVV u.a.)",
+    "quelle_url": "https://www.gesetze-im-internet.de/stbgebv/anlage_1.html",
+    "stand": "Fundstelle lt. Anlage-Text: BGBl. 2025 I Nr. 105, S. 5-6 (laut Dossier Steuer-Ops DE/dossier-ao-fristen-stbvv-2026-09-08.md Abschnitt 9 in Kraft seit 2025-07-01 -- Inkrafttretensdatum nicht separat je Anlage auf gesetze-im-internet.de verifiziert)",
+    "abgerufen_am": "2026-09-08",
+    "stufen": [
+      {
+        "bis": "300",
+        "gebuehr": "31"
+      },
+      {
+        "bis": "600",
+        "gebuehr": "56"
+      },
+      {
+        "bis": "900",
+        "gebuehr": "81"
+      },
+      {
+        "bis": "1200",
+        "gebuehr": "106"
+      },
+      {
+        "bis": "1500",
+        "gebuehr": "130"
+      },
+      {
+        "bis": "2000",
+        "gebuehr": "166"
+      },
+      {
+        "bis": "2500",
+        "gebuehr": "200"
+      },
+      {
+        "bis": "3000",
+        "gebuehr": "235"
+      },
+      {
+        "bis": "3500",
+        "gebuehr": "270"
+      },
+      {
+        "bis": "4000",
+        "gebuehr": "305"
+      },
+      {
+        "bis": "4500",
+        "gebuehr": "340"
+      },
+      {
+        "bis": "5000",
+        "gebuehr": "375"
+      },
+      {
+        "bis": "6000",
+        "gebuehr": "422"
+      },
+      {
+        "bis": "7000",
+        "gebuehr": "467"
+      },
+      {
+        "bis": "8000",
+        "gebuehr": "514"
+      },
+      {
+        "bis": "9000",
+        "gebuehr": "560"
+      },
+      {
+        "bis": "10000",
+        "gebuehr": "605"
+      },
+      {
+        "bis": "13000",
+        "gebuehr": "655"
+      },
+      {
+        "bis": "16000",
+        "gebuehr": "705"
+      },
+      {
+        "bis": "19000",
+        "gebuehr": "755"
+      },
+      {
+        "bis": "22000",
+        "gebuehr": "805"
+      },
+      {
+        "bis": "25000",
+        "gebuehr": "854"
+      },
+      {
+        "bis": "30000",
+        "gebuehr": "946"
+      },
+      {
+        "bis": "35000",
+        "gebuehr": "1036"
+      },
+      {
+        "bis": "40000",
+        "gebuehr": "1125"
+      },
+      {
+        "bis": "45000",
+        "gebuehr": "1215"
+      },
+      {
+        "bis": "50000",
+        "gebuehr": "1304"
+      },
+      {
+        "bis": "65000",
+        "gebuehr": "1399"
+      },
+      {
+        "bis": "80000",
+        "gebuehr": "1496"
+      },
+      {
+        "bis": "95000",
+        "gebuehr": "1592"
+      },
+      {
+        "bis": "110000",
+        "gebuehr": "1689"
+      },
+      {
+        "bis": "125000",
+        "gebuehr": "1784"
+      },
+      {
+        "bis": "140000",
+        "gebuehr": "1879"
+      },
+      {
+        "bis": "155000",
+        "gebuehr": "1976"
+      },
+      {
+        "bis": "170000",
+        "gebuehr": "2071"
+      },
+      {
+        "bis": "185000",
+        "gebuehr": "2168"
+      },
+      {
+        "bis": "200000",
+        "gebuehr": "2264"
+      },
+      {
+        "bis": "230000",
+        "gebuehr": "2412"
+      },
+      {
+        "bis": "260000",
+        "gebuehr": "2559"
+      },
+      {
+        "bis": "290000",
+        "gebuehr": "2705"
+      },
+      {
+        "bis": "320000",
+        "gebuehr": "2859"
+      },
+      {
+        "bis": "350000",
+        "gebuehr": "2926"
+      },
+      {
+        "bis": "380000",
+        "gebuehr": "2990"
+      },
+      {
+        "bis": "410000",
+        "gebuehr": "3055"
+      },
+      {
+        "bis": "440000",
+        "gebuehr": "3115"
+      },
+      {
+        "bis": "470000",
+        "gebuehr": "3175"
+      },
+      {
+        "bis": "500000",
+        "gebuehr": "3234"
+      },
+      {
+        "bis": "550000",
+        "gebuehr": "3320"
+      },
+      {
+        "bis": "600000",
+        "gebuehr": "3404"
+      }
+    ],
+    "fortschreibung": [
+      {
+        "ab": "600000",
+        "bis": "5000000",
+        "je_angefangene_euro": "50000",
+        "zuschlag": "149"
+      },
+      {
+        "ab": "5000000",
+        "bis": "25000000",
+        "je_angefangene_euro": "50000",
+        "zuschlag": "112"
+      },
+      {
+        "ab": "25000000",
+        "bis": null,
+        "je_angefangene_euro": "50000",
+        "zuschlag": "88"
+      }
+    ]
+  },
+  "B": {
+    "bezeichnung": "Tabelle B (Abschlusstabelle)",
+    "norm": "Anlage 2 StBVV (zu § 35 StBVV u.a.)",
+    "quelle_url": "https://www.gesetze-im-internet.de/stbgebv/anlage_2.html",
+    "stand": "Fundstelle lt. Anlage-Text: BGBl. 2025 I Nr. 105, S. 7-8 (siehe Hinweis bei Tabelle A zum Inkrafttretensdatum)",
+    "abgerufen_am": "2026-09-08",
+    "stufen": [
+      {
+        "bis": "3000",
+        "gebuehr": "49"
+      },
+      {
+        "bis": "3500",
+        "gebuehr": "57"
+      },
+      {
+        "bis": "4000",
+        "gebuehr": "68"
+      },
+      {
+        "bis": "4500",
+        "gebuehr": "76"
+      },
+      {
+        "bis": "5000",
+        "gebuehr": "86"
+      },
+      {
+        "bis": "6000",
+        "gebuehr": "96"
+      },
+      {
+        "bis": "7000",
+        "gebuehr": "105"
+      },
+      {
+        "bis": "8000",
+        "gebuehr": "116"
+      },
+      {
+        "bis": "9000",
+        "gebuehr": "121"
+      },
+      {
+        "bis": "10000",
+        "gebuehr": "127"
+      },
+      {
+        "bis": "12500",
+        "gebuehr": "134"
+      },
+      {
+        "bis": "15000",
+        "gebuehr": "151"
+      },
+      {
+        "bis": "17500",
+        "gebuehr": "166"
+      },
+      {
+        "bis": "20000",
+        "gebuehr": "178"
+      },
+      {
+        "bis": "22500",
+        "gebuehr": "191"
+      },
+      {
+        "bis": "25000",
+        "gebuehr": "201"
+      },
+      {
+        "bis": "37500",
+        "gebuehr": "215"
+      },
+      {
+        "bis": "50000",
+        "gebuehr": "263"
+      },
+      {
+        "bis": "62500",
+        "gebuehr": "303"
+      },
+      {
+        "bis": "75000",
+        "gebuehr": "338"
+      },
+      {
+        "bis": "87500",
+        "gebuehr": "353"
+      },
+      {
+        "bis": "100000",
+        "gebuehr": "369"
+      },
+      {
+        "bis": "125000",
+        "gebuehr": "423"
+      },
+      {
+        "bis": "150000",
+        "gebuehr": "471"
+      },
+      {
+        "bis": "175000",
+        "gebuehr": "512"
+      },
+      {
+        "bis": "200000",
+        "gebuehr": "548"
+      },
+      {
+        "bis": "225000",
+        "gebuehr": "582"
+      },
+      {
+        "bis": "250000",
+        "gebuehr": "613"
+      },
+      {
+        "bis": "300000",
+        "gebuehr": "641"
+      },
+      {
+        "bis": "350000",
+        "gebuehr": "696"
+      },
+      {
+        "bis": "400000",
+        "gebuehr": "746"
+      },
+      {
+        "bis": "450000",
+        "gebuehr": "791"
+      },
+      {
+        "bis": "500000",
+        "gebuehr": "832"
+      },
+      {
+        "bis": "625000",
+        "gebuehr": "871"
+      },
+      {
+        "bis": "750000",
+        "gebuehr": "968"
+      },
+      {
+        "bis": "875000",
+        "gebuehr": "1050"
+      },
+      {
+        "bis": "1000000",
+        "gebuehr": "1126"
+      },
+      {
+        "bis": "1250000",
+        "gebuehr": "1194"
+      },
+      {
+        "bis": "1500000",
+        "gebuehr": "1324"
+      },
+      {
+        "bis": "1750000",
+        "gebuehr": "1438"
+      },
+      {
+        "bis": "2000000",
+        "gebuehr": "1542"
+      },
+      {
+        "bis": "2250000",
+        "gebuehr": "1635"
+      },
+      {
+        "bis": "2500000",
+        "gebuehr": "1718"
+      },
+      {
+        "bis": "3000000",
+        "gebuehr": "1797"
+      },
+      {
+        "bis": "3500000",
+        "gebuehr": "1951"
+      },
+      {
+        "bis": "4000000",
+        "gebuehr": "2089"
+      },
+      {
+        "bis": "4500000",
+        "gebuehr": "2214"
+      },
+      {
+        "bis": "5000000",
+        "gebuehr": "2328"
+      },
+      {
+        "bis": "7500000",
+        "gebuehr": "2720"
+      },
+      {
+        "bis": "10000000",
+        "gebuehr": "3162"
+      },
+      {
+        "bis": "12500000",
+        "gebuehr": "3520"
+      },
+      {
+        "bis": "15000000",
+        "gebuehr": "3819"
+      },
+      {
+        "bis": "17500000",
+        "gebuehr": "4074"
+      },
+      {
+        "bis": "20000000",
+        "gebuehr": "4293"
+      },
+      {
+        "bis": "22500000",
+        "gebuehr": "4573"
+      },
+      {
+        "bis": "25000000",
+        "gebuehr": "4831"
+      },
+      {
+        "bis": "30000000",
+        "gebuehr": "5315"
+      },
+      {
+        "bis": "35000000",
+        "gebuehr": "5759"
+      },
+      {
+        "bis": "40000000",
+        "gebuehr": "6172"
+      },
+      {
+        "bis": "45000000",
+        "gebuehr": "6558"
+      },
+      {
+        "bis": "50000000",
+        "gebuehr": "6923"
+      }
+    ],
+    "fortschreibung": [
+      {
+        "ab": "50000000",
+        "bis": "125000000",
+        "je_angefangene_euro": "5000000",
+        "zuschlag": "273"
+      },
+      {
+        "ab": "125000000",
+        "bis": "250000000",
+        "je_angefangene_euro": "12500000",
+        "zuschlag": "477"
+      },
+      {
+        "ab": "250000000",
+        "bis": null,
+        "je_angefangene_euro": "25000000",
+        "zuschlag": "681"
+      }
+    ]
+  },
+  "C": {
+    "bezeichnung": "Tabelle C (Buchführungstabelle)",
+    "norm": "Anlage 3 StBVV (zu § 33 StBVV)",
+    "quelle_url": "https://www.gesetze-im-internet.de/stbgebv/anlage_3.html",
+    "stand": "Fundstelle lt. Anlage-Text: BGBl. 2025 I Nr. 105, S. 9 (siehe Hinweis bei Tabelle A zum Inkrafttretensdatum)",
+    "abgerufen_am": "2026-09-08",
+    "stufen": [
+      {
+        "bis": "15000",
+        "gebuehr": "72"
+      },
+      {
+        "bis": "17500",
+        "gebuehr": "80"
+      },
+      {
+        "bis": "20000",
+        "gebuehr": "88"
+      },
+      {
+        "bis": "22500",
+        "gebuehr": "93"
+      },
+      {
+        "bis": "25000",
+        "gebuehr": "101"
+      },
+      {
+        "bis": "30000",
+        "gebuehr": "108"
+      },
+      {
+        "bis": "35000",
+        "gebuehr": "117"
+      },
+      {
+        "bis": "40000",
+        "gebuehr": "122"
+      },
+      {
+        "bis": "45000",
+        "gebuehr": "129"
+      },
+      {
+        "bis": "50000",
+        "gebuehr": "138"
+      },
+      {
+        "bis": "62500",
+        "gebuehr": "145"
+      },
+      {
+        "bis": "75000",
+        "gebuehr": "158"
+      },
+      {
+        "bis": "87500",
+        "gebuehr": "174"
+      },
+      {
+        "bis": "100000",
+        "gebuehr": "188"
+      },
+      {
+        "bis": "125000",
+        "gebuehr": "209"
+      },
+      {
+        "bis": "150000",
+        "gebuehr": "230"
+      },
+      {
+        "bis": "200000",
+        "gebuehr": "275"
+      },
+      {
+        "bis": "250000",
+        "gebuehr": "317"
+      },
+      {
+        "bis": "300000",
+        "gebuehr": "359"
+      },
+      {
+        "bis": "350000",
+        "gebuehr": "404"
+      },
+      {
+        "bis": "400000",
+        "gebuehr": "441"
+      },
+      {
+        "bis": "450000",
+        "gebuehr": "475"
+      },
+      {
+        "bis": "500000",
+        "gebuehr": "512"
+      }
+    ],
+    "fortschreibung": [
+      {
+        "ab": "500000",
+        "bis": null,
+        "je_angefangene_euro": "50000",
+        "zuschlag": "36"
+      }
+    ]
+  },
+  "D_teil_a": {
+    "bezeichnung": "Tabelle D Teil a (Landwirtschaftliche Tabelle - Betriebsfläche)",
+    "norm": "Anlage 4 StBVV Teil a (zu § 39 StBVV, hier nur als Daten hinterlegt -- kein Katalogeintrag in diesem Skill)",
+    "quelle_url": "https://www.gesetze-im-internet.de/stbgebv/anlage_4.html",
+    "stand": "Fundstelle lt. Anlage-Text: BGBl. 2025 Nr. 105, S. 10-14 (Fundstellenangabe auf der Seite ohne 'I'; siehe Hinweis bei Tabelle A zum Inkrafttretensdatum)",
+    "abgerufen_am": "2026-09-08",
+    "stufen": [
+      {
+        "bis": "40",
+        "gebuehr": "369"
+      },
+      {
+        "bis": "45",
+        "gebuehr": "395"
+      },
+      {
+        "bis": "50",
+        "gebuehr": "420"
+      },
+      {
+        "bis": "55",
+        "gebuehr": "444"
+      },
+      {
+        "bis": "60",
+        "gebuehr": "467"
+      },
+      {
+        "bis": "65",
+        "gebuehr": "489"
+      },
+      {
+        "bis": "70",
+        "gebuehr": "508"
+      },
+      {
+        "bis": "75",
+        "gebuehr": "527"
+      },
+      {
+        "bis": "80",
+        "gebuehr": "545"
+      },
+      {
+        "bis": "85",
+        "gebuehr": "562"
+      },
+      {
+        "bis": "90",
+        "gebuehr": "576"
+      },
+      {
+        "bis": "95",
+        "gebuehr": "589"
+      },
+      {
+        "bis": "100",
+        "gebuehr": "601"
+      },
+      {
+        "bis": "110",
+        "gebuehr": "631"
+      },
+      {
+        "bis": "120",
+        "gebuehr": "659"
+      },
+      {
+        "bis": "130",
+        "gebuehr": "687"
+      },
+      {
+        "bis": "140",
+        "gebuehr": "714"
+      },
+      {
+        "bis": "150",
+        "gebuehr": "742"
+      },
+      {
+        "bis": "160",
+        "gebuehr": "769"
+      },
+      {
+        "bis": "170",
+        "gebuehr": "793"
+      },
+      {
+        "bis": "180",
+        "gebuehr": "818"
+      },
+      {
+        "bis": "190",
+        "gebuehr": "842"
+      },
+      {
+        "bis": "200",
+        "gebuehr": "865"
+      },
+      {
+        "bis": "210",
+        "gebuehr": "888"
+      },
+      {
+        "bis": "220",
+        "gebuehr": "911"
+      },
+      {
+        "bis": "230",
+        "gebuehr": "932"
+      },
+      {
+        "bis": "240",
+        "gebuehr": "952"
+      },
+      {
+        "bis": "250",
+        "gebuehr": "972"
+      },
+      {
+        "bis": "260",
+        "gebuehr": "992"
+      },
+      {
+        "bis": "270",
+        "gebuehr": "1011"
+      },
+      {
+        "bis": "280",
+        "gebuehr": "1028"
+      },
+      {
+        "bis": "290",
+        "gebuehr": "1046"
+      },
+      {
+        "bis": "300",
+        "gebuehr": "1062"
+      },
+      {
+        "bis": "320",
+        "gebuehr": "1097"
+      },
+      {
+        "bis": "340",
+        "gebuehr": "1131"
+      },
+      {
+        "bis": "360",
+        "gebuehr": "1166"
+      },
+      {
+        "bis": "380",
+        "gebuehr": "1198"
+      },
+      {
+        "bis": "400",
+        "gebuehr": "1229"
+      },
+      {
+        "bis": "420",
+        "gebuehr": "1262"
+      },
+      {
+        "bis": "440",
+        "gebuehr": "1293"
+      },
+      {
+        "bis": "460",
+        "gebuehr": "1323"
+      },
+      {
+        "bis": "480",
+        "gebuehr": "1352"
+      },
+      {
+        "bis": "500",
+        "gebuehr": "1379"
+      },
+      {
+        "bis": "520",
+        "gebuehr": "1409"
+      },
+      {
+        "bis": "540",
+        "gebuehr": "1436"
+      },
+      {
+        "bis": "560",
+        "gebuehr": "1463"
+      },
+      {
+        "bis": "580",
+        "gebuehr": "1488"
+      },
+      {
+        "bis": "600",
+        "gebuehr": "1515"
+      },
+      {
+        "bis": "620",
+        "gebuehr": "1540"
+      },
+      {
+        "bis": "640",
+        "gebuehr": "1564"
+      },
+      {
+        "bis": "660",
+        "gebuehr": "1587"
+      },
+      {
+        "bis": "680",
+        "gebuehr": "1610"
+      },
+      {
+        "bis": "700",
+        "gebuehr": "1630"
+      },
+      {
+        "bis": "750",
+        "gebuehr": "1681"
+      },
+      {
+        "bis": "800",
+        "gebuehr": "1726"
+      },
+      {
+        "bis": "850",
+        "gebuehr": "1764"
+      },
+      {
+        "bis": "900",
+        "gebuehr": "1797"
+      },
+      {
+        "bis": "950",
+        "gebuehr": "1822"
+      },
+      {
+        "bis": "1000",
+        "gebuehr": "1843"
+      }
+    ],
+    "fortschreibung_marginal_je_hektar": [
+      {
+        "ab_hektar": "2000",
+        "je_hektar": "1.69"
+      },
+      {
+        "ab_hektar": "3000",
+        "je_hektar": "1.53"
+      },
+      {
+        "ab_hektar": "4000",
+        "je_hektar": "1.38"
+      },
+      {
+        "ab_hektar": "5000",
+        "je_hektar": "1.22"
+      },
+      {
+        "ab_hektar": "6000",
+        "je_hektar": "1.07"
+      },
+      {
+        "ab_hektar": "7000",
+        "je_hektar": "0.92"
+      },
+      {
+        "ab_hektar": "8000",
+        "je_hektar": "0.76"
+      },
+      {
+        "ab_hektar": "9000",
+        "je_hektar": "0.60"
+      },
+      {
+        "ab_hektar": "10000",
+        "je_hektar": "0.46"
+      },
+      {
+        "ab_hektar": "11000",
+        "je_hektar": "0.30"
+      },
+      {
+        "ab_hektar": "12000",
+        "je_hektar": "0.16"
+      },
+      {
+        "ab_hektar": "12000",
+        "je_hektar": "0.16"
+      }
+    ],
+    "fortschreibung_hinweis": "Oberhalb der letzten Stufe (1 000 ha) gilt ein gestaffelter Grenzbetrag je vollem Hektar (Anlage-Text: 'je ha ... mehr') -- ein anderes Schema als das 'je angefangene X Euro'-Muster der Tabellen A-C und D Teil b. Nicht implementiert (kein Katalogeintrag referenziert Tabelle D in diesem Skill-Scope) -- der Rechner lehnt eine Anfrage oberhalb der letzten Stufe für diese Tabelle mit Exit 2 ab, statt zu raten."
+  },
+  "D_teil_b": {
+    "bezeichnung": "Tabelle D Teil b (Landwirtschaftliche Tabelle - Jahresumsatz)",
+    "norm": "Anlage 4 StBVV Teil b (zu § 39 Abs. 5 StBVV, hier nur als Daten hinterlegt -- kein Katalogeintrag in diesem Skill)",
+    "quelle_url": "https://www.gesetze-im-internet.de/stbgebv/anlage_4.html",
+    "stand": "Fundstelle lt. Anlage-Text: BGBl. 2025 Nr. 105, S. 10-14 (Fundstellenangabe auf der Seite ohne 'I'; siehe Hinweis bei Tabelle A zum Inkrafttretensdatum)",
+    "abgerufen_am": "2026-09-08",
+    "stufen": [
+      {
+        "bis": "40000",
+        "gebuehr": "384"
+      },
+      {
+        "bis": "42500",
+        "gebuehr": "403"
+      },
+      {
+        "bis": "45000",
+        "gebuehr": "422"
+      },
+      {
+        "bis": "47500",
+        "gebuehr": "442"
+      },
+      {
+        "bis": "50000",
+        "gebuehr": "459"
+      },
+      {
+        "bis": "55000",
+        "gebuehr": "497"
+      },
+      {
+        "bis": "60000",
+        "gebuehr": "533"
+      },
+      {
+        "bis": "65000",
+        "gebuehr": "571"
+      },
+      {
+        "bis": "70000",
+        "gebuehr": "605"
+      },
+      {
+        "bis": "75000",
+        "gebuehr": "642"
+      },
+      {
+        "bis": "80000",
+        "gebuehr": "678"
+      },
+      {
+        "bis": "85000",
+        "gebuehr": "713"
+      },
+      {
+        "bis": "90000",
+        "gebuehr": "748"
+      },
+      {
+        "bis": "95000",
+        "gebuehr": "782"
+      },
+      {
+        "bis": "100000",
+        "gebuehr": "817"
+      },
+      {
+        "bis": "105000",
+        "gebuehr": "850"
+      },
+      {
+        "bis": "110000",
+        "gebuehr": "883"
+      },
+      {
+        "bis": "115000",
+        "gebuehr": "918"
+      },
+      {
+        "bis": "120000",
+        "gebuehr": "951"
+      },
+      {
+        "bis": "125000",
+        "gebuehr": "983"
+      },
+      {
+        "bis": "130000",
+        "gebuehr": "1017"
+      },
+      {
+        "bis": "135000",
+        "gebuehr": "1048"
+      },
+      {
+        "bis": "140000",
+        "gebuehr": "1081"
+      },
+      {
+        "bis": "145000",
+        "gebuehr": "1114"
+      },
+      {
+        "bis": "150000",
+        "gebuehr": "1146"
+      },
+      {
+        "bis": "155000",
+        "gebuehr": "1178"
+      },
+      {
+        "bis": "160000",
+        "gebuehr": "1209"
+      },
+      {
+        "bis": "165000",
+        "gebuehr": "1242"
+      },
+      {
+        "bis": "170000",
+        "gebuehr": "1273"
+      },
+      {
+        "bis": "175000",
+        "gebuehr": "1304"
+      },
+      {
+        "bis": "180000",
+        "gebuehr": "1336"
+      },
+      {
+        "bis": "185000",
+        "gebuehr": "1366"
+      },
+      {
+        "bis": "190000",
+        "gebuehr": "1397"
+      },
+      {
+        "bis": "195000",
+        "gebuehr": "1428"
+      },
+      {
+        "bis": "200000",
+        "gebuehr": "1459"
+      },
+      {
+        "bis": "205000",
+        "gebuehr": "1490"
+      },
+      {
+        "bis": "210000",
+        "gebuehr": "1520"
+      },
+      {
+        "bis": "215000",
+        "gebuehr": "1550"
+      },
+      {
+        "bis": "220000",
+        "gebuehr": "1580"
+      },
+      {
+        "bis": "225000",
+        "gebuehr": "1611"
+      },
+      {
+        "bis": "230000",
+        "gebuehr": "1640"
+      },
+      {
+        "bis": "235000",
+        "gebuehr": "1670"
+      },
+      {
+        "bis": "240000",
+        "gebuehr": "1699"
+      },
+      {
+        "bis": "245000",
+        "gebuehr": "1728"
+      },
+      {
+        "bis": "250000",
+        "gebuehr": "1755"
+      },
+      {
+        "bis": "255000",
+        "gebuehr": "1785"
+      },
+      {
+        "bis": "260000",
+        "gebuehr": "1815"
+      },
+      {
+        "bis": "265000",
+        "gebuehr": "1842"
+      },
+      {
+        "bis": "270000",
+        "gebuehr": "1871"
+      },
+      {
+        "bis": "275000",
+        "gebuehr": "1898"
+      },
+      {
+        "bis": "280000",
+        "gebuehr": "1926"
+      },
+      {
+        "bis": "285000",
+        "gebuehr": "1953"
+      },
+      {
+        "bis": "290000",
+        "gebuehr": "1980"
+      },
+      {
+        "bis": "295000",
+        "gebuehr": "2008"
+      },
+      {
+        "bis": "300000",
+        "gebuehr": "2034"
+      },
+      {
+        "bis": "305000",
+        "gebuehr": "2060"
+      },
+      {
+        "bis": "310000",
+        "gebuehr": "2086"
+      },
+      {
+        "bis": "315000",
+        "gebuehr": "2110"
+      },
+      {
+        "bis": "320000",
+        "gebuehr": "2136"
+      },
+      {
+        "bis": "325000",
+        "gebuehr": "2160"
+      },
+      {
+        "bis": "330000",
+        "gebuehr": "2186"
+      },
+      {
+        "bis": "335000",
+        "gebuehr": "2209"
+      },
+      {
+        "bis": "340000",
+        "gebuehr": "2233"
+      },
+      {
+        "bis": "345000",
+        "gebuehr": "2257"
+      },
+      {
+        "bis": "350000",
+        "gebuehr": "2278"
+      },
+      {
+        "bis": "355000",
+        "gebuehr": "2302"
+      },
+      {
+        "bis": "360000",
+        "gebuehr": "2325"
+      },
+      {
+        "bis": "365000",
+        "gebuehr": "2346"
+      },
+      {
+        "bis": "370000",
+        "gebuehr": "2368"
+      },
+      {
+        "bis": "375000",
+        "gebuehr": "2390"
+      },
+      {
+        "bis": "380000",
+        "gebuehr": "2404"
+      },
+      {
+        "bis": "385000",
+        "gebuehr": "2432"
+      },
+      {
+        "bis": "390000",
+        "gebuehr": "2452"
+      },
+      {
+        "bis": "395000",
+        "gebuehr": "2472"
+      },
+      {
+        "bis": "400000",
+        "gebuehr": "2492"
+      },
+      {
+        "bis": "410000",
+        "gebuehr": "2531"
+      },
+      {
+        "bis": "420000",
+        "gebuehr": "2569"
+      },
+      {
+        "bis": "430000",
+        "gebuehr": "2609"
+      },
+      {
+        "bis": "440000",
+        "gebuehr": "2645"
+      },
+      {
+        "bis": "450000",
+        "gebuehr": "2682"
+      },
+      {
+        "bis": "460000",
+        "gebuehr": "2718"
+      },
+      {
+        "bis": "470000",
+        "gebuehr": "2752"
+      },
+      {
+        "bis": "480000",
+        "gebuehr": "2787"
+      },
+      {
+        "bis": "490000",
+        "gebuehr": "2817"
+      },
+      {
+        "bis": "500000",
+        "gebuehr": "2848"
+      }
+    ],
+    "fortschreibung": [
+      {
+        "ab": "500000",
+        "bis": null,
+        "je_angefangene_euro": "50000",
+        "zuschlag": "165"
+      }
+    ]
+  }
+}

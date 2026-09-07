@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "erzeugt_von": "core/calc/stbvv/executor.py",
+    "quelle_datei": "beispiel-eingabe-wertgebuehr.json",
+    "deterministik": "Alle Geldbeträge in diesem Report sind Executor-Ergebnisse (P3), nicht modellgeneriert."
+  },
+  "berechnung": {
+    "art": "wertgebuehr",
+    "bezeichnung": "Einkommensteuererklärung ohne Ermittlung der einzelnen Einkünfte",
+    "norm": "§ 24 Abs. 1 Nr. 1 StBVV",
+    "details": {
+      "tatbestand_id": "24-1-nr1-est-erklaerung",
+      "tabelle": "A",
+      "gegenstandswert_eingabe": "50000.00",
+      "gegenstandswert_angewendet": "50000.00",
+      "mindestwert_gegriffen": false,
+      "volle_gebuehr": "1304",
+      "satz": "0.35"
+    }
+  },
+  "rechenkette": [
+    {
+      "schritt": 1,
+      "norm": "Anlage 1 StBVV (zu § 10 Abs. 1, § 13, § 21, § 24 StBVV u.a.)",
+      "beschreibung": "Volle Gebühr (10/10) für Gegenstandswert 50000.00 Euro: Wertstufe bis 50000 Euro, Tabelle A (Beratungstabelle).",
+      "ergebnis": "1304",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 2,
+      "norm": "§ 24 Abs. 1 Nr. 1 StBVV",
+      "beschreibung": "Zehntelrahmen 1/10 bis 6/10 — gewählter Satz 0.35 (referenzpunkt='mittelgebuehr'; Untergrenze 0.1, Mittelgebühr 0.35, Obergrenze 0.6; Ermessen des Steuerberaters, § 11 StBVV).",
+      "ergebnis": "0.35",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 3,
+      "norm": "Hausregel (kaufmännische Rundung auf den Cent — StBVV-Text ohne eigene Rundungsvorschrift)",
+      "beschreibung": "0.35 x 1304 Euro.",
+      "ergebnis": "456.40",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 4,
+      "norm": "§ 16 StBVV",
+      "beschreibung": "Auslagenpauschale — 20 % von 456.40 Euro = 91.28 Euro, gedeckelt auf höchstens 20.00 Euro (in derselben Angelegenheit).",
+      "ergebnis": "20.00",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 5,
+      "norm": "Netto",
+      "beschreibung": "Gebühr zzgl. Auslagenpauschale (sofern angefordert).",
+      "ergebnis": "476.40",
+      "quelle": "executor"
+    },
+    {
+      "schritt": 6,
+      "norm": "§ 15 StBVV",
+      "beschreibung": "Umsatzsteuer — 19.00 % von 476.40 Euro.",
+      "ergebnis": "90.52",
+      "quelle": "executor"
+    }
+  ],
+  "ergebnis": {
+    "gebuehr": "456.40",
+    "auslagenpauschale": "20.00",
+    "netto": "476.40",
+    "umsatzsteuersatz": "0.19",
+    "umsatzsteuer": "90.52",
+    "brutto": "566.92",
+    "quelle": "executor"
+  }
+}

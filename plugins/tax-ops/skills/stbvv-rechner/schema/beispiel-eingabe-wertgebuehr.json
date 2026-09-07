@@ -1,0 +1,9 @@
+{
+  "wertgebuehr": {
+    "tatbestand_id": "24-1-nr1-est-erklaerung",
+    "gegenstandswert": "50000.00",
+    "referenzpunkt": "mittelgebuehr"
+  },
+  "auslagenpauschale": true,
+  "umsatzsteuer": true
+}

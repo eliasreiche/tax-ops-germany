@@ -1,0 +1,9 @@
+{
+  "betragsrahmen": {
+    "tatbestand_id": "34-2-lohnabrechnung",
+    "einheiten": 5,
+    "referenzpunkt": "mittelgebuehr"
+  },
+  "auslagenpauschale": false,
+  "umsatzsteuer": false
+}

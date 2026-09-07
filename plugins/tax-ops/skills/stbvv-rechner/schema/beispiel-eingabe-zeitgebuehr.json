@@ -1,0 +1,9 @@
+{
+  "zeitgebuehr": {
+    "stichtag": "2025-09-01",
+    "minuten": 100,
+    "referenzpunkt": "obergrenze"
+  },
+  "auslagenpauschale": false,
+  "umsatzsteuer": false
+}

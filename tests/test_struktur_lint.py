@@ -35,11 +35,12 @@ def test_frontmatter_fehlt():
     assert struktur_lint.frontmatter("# kein Frontmatter\n") is None
 
 
-def test_noch_keine_skills_im_repo():
-    # Skills folgen mit Welle 6 (skills/README.md) — der Startzustand des
-    # Repos hat bewusst null Skills; der Lint muss trotzdem grün laufen
-    # (siehe test_lint_laeuft_sauber_auf_dem_repo).
-    assert struktur_lint.skill_dirs() == []
+def test_skill_dirs_findet_reale_skills():
+    # Skills folgen ab Welle 6 (skills/README.md) — der Bootstrap-Startzustand
+    # hatte bewusst null Skills (siehe core/VENDORED.md); seit stbvv-rechner
+    # (Welle 6) ist mindestens einer vorhanden. Der Lint muss so oder so grün
+    # laufen (siehe test_lint_laeuft_sauber_auf_dem_repo).
+    assert len(struktur_lint.skill_dirs()) >= 1
 
 
 def _skill(tmp_path, name, status, bereich="fristen", extra="", mit_tests=False):
@@ -113,12 +114,14 @@ def test_getestet_mit_abnahme_und_tests_ist_sauber(tmp_path):
 
 
 def test_lint_laeuft_sauber_auf_dem_repo():
-    # Muss mit null Skills grün durchlaufen (Startzustand vor Welle 6).
+    # Muss unabhängig von der Anzahl echter Skills grün durchlaufen — vor
+    # Welle 6 mit 0, seit stbvv-rechner mit >= 1 (siehe
+    # test_skill_dirs_findet_reale_skills).
     ergebnis = subprocess.run(
         [sys.executable, str(REPO / "plugins" / "tax-ops" / "core" / "verify" / "struktur_lint.py")],
         capture_output=True, text=True)
     assert ergebnis.returncode == 0, ergebnis.stderr
-    assert "sauber (0 Skills geprüft)" in ergebnis.stdout
+    assert "Struktur-Lint: sauber (" in ergebnis.stdout
 
 
 # --------------------------------------------------------------------------
