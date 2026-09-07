@@ -38,7 +38,8 @@ Beispiel:
 CLI:
     python3 core/calc/stbvv/executor.py --input ANFRAGE.json [--output REPORT.json]
 
-Exit-Codes: 0 = Report erzeugt, 2 = Eingabefehler.
+Exit-Codes: 0 = Report erzeugt, 1 = fachlicher Fehler / Schema-Verstoß,
+2 = Eingabefehler (Datei fehlt, ungültiges JSON).
 """
 from __future__ import annotations
 
@@ -192,11 +193,15 @@ def main(argv: list[str] | None = None) -> int:
         eingabe = lese_json_objekt(input_pfad)
         report = baue_report(eingabe, quelle_datei=str(input_pfad))
         schreibe_report(report, args.output)
-    except (CliFehler, StBVVEingabeFehler, ValueError, ArithmeticError) as exc:
-        # ValueError/ArithmeticError als Sicherheitsnetz (u. a.
-        # decimal.InvalidOperation), damit nie ein Traceback statt Exit 2 erscheint.
+    except CliFehler as exc:
+        # Eingabefehler: Datei fehlt, ungültiges JSON
         print(f"Fehler: {exc}", file=sys.stderr)
         return 2
+    except (StBVVEingabeFehler, ValueError, ArithmeticError) as exc:
+        # Fachlicher Fehler oder Schema-Verstoß
+        # (ValueError/ArithmeticError für Sicherheitsnetz: decimal.InvalidOperation, etc.)
+        print(f"Fehler: {exc}", file=sys.stderr)
+        return 1
     return 0
 
 

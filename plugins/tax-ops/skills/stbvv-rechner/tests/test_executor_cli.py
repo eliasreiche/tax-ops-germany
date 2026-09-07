@@ -104,7 +104,7 @@ def test_fehlende_datei(tmp_path):
 
 def test_kein_block(tmp_path):
     ergebnis = lauf(EXECUTOR, "--input", schreibe(tmp_path / "leer.json", {}))
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
 
 
 def test_zwei_bloecke_gleichzeitig(tmp_path):
@@ -113,7 +113,7 @@ def test_zwei_bloecke_gleichzeitig(tmp_path):
                         "gegenstandswert": "50000", "referenzpunkt": "mittelgebuehr"},
         "zeitgebuehr": {"stichtag": "2025-07-01", "minuten": 15, "referenzpunkt": "untergrenze"},
     }))
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
 
 
 def test_unbekannter_key_oberste_ebene(tmp_path):
@@ -122,7 +122,7 @@ def test_unbekannter_key_oberste_ebene(tmp_path):
                         "gegenstandswert": "50000", "referenzpunkt": "mittelgebuehr"},
         "auslagenpauchale": True,
     }))
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
     assert "auslagenpauchale" in ergebnis.stderr
 
 
@@ -131,13 +131,13 @@ def test_float_gegenstandswert_wird_abgelehnt(tmp_path):
         "wertgebuehr": {"tatbestand_id": "24-1-nr1-est-erklaerung",
                         "gegenstandswert": 50000.0, "referenzpunkt": "mittelgebuehr"},
     }))
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
     assert "float" in ergebnis.stderr
 
 
-def test_zeitgebuehr_vor_stichtag_exit_2(tmp_path):
+def test_zeitgebuehr_vor_stichtag_exit_1(tmp_path):
     ergebnis = lauf(EXECUTOR, "--input", schreibe(tmp_path / "alt.json", {
         "zeitgebuehr": {"stichtag": "2024-01-01", "minuten": 20, "referenzpunkt": "mittelgebuehr"},
     }))
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
     assert "2025-07-01" in ergebnis.stderr

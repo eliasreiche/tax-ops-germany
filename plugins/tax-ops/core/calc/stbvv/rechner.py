@@ -225,11 +225,9 @@ class HauptErgebnis:
 
 def berechne_wertgebuehr(tatbestand_id: str, gegenstandswert: Any, *,
                          satz: Any = None, referenzpunkt: Any = None,
-                         erstberatung_verbraucher: bool = False,
-                         katalog: dict[str, Any] | None = None,
-                         tabellen: dict[str, Any] | None = None) -> HauptErgebnis:
-    kat = katalog or lade_katalog()
-    tab = tabellen or lade_tabellen()
+                         erstberatung_verbraucher: bool = False) -> HauptErgebnis:
+    kat = lade_katalog()
+    tab = lade_tabellen()
     if tatbestand_id not in kat:
         raise StBVVEingabeFehler(
             f"unbekannte Tatbestands-Id '{tatbestand_id}' — siehe katalog.json "
@@ -302,9 +300,8 @@ def berechne_wertgebuehr(tatbestand_id: str, gegenstandswert: Any, *,
 
 
 def berechne_betragsrahmen(tatbestand_id: str, einheiten: Any, *,
-                           satz_je_einheit: Any = None, referenzpunkt: Any = None,
-                           katalog: dict[str, Any] | None = None) -> HauptErgebnis:
-    kat = katalog or lade_katalog()
+                           satz_je_einheit: Any = None, referenzpunkt: Any = None) -> HauptErgebnis:
+    kat = lade_katalog()
     if tatbestand_id not in kat:
         raise StBVVEingabeFehler(f"unbekannte Tatbestands-Id '{tatbestand_id}'")
     eintrag = kat[tatbestand_id]
