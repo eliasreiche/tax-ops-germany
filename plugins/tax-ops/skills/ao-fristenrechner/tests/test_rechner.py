@@ -287,6 +287,19 @@ def test_verspaetungszuschlag_prozentsatz_ueber_mindestbetrag():
     assert erg.zuschlag_gesamt == Decimal("1350")
 
 
+def test_verspaetungszuschlag_monatsbetrag_ungerundet_bis_zum_schluss():
+    # § 152 Abs. 10 AO rundet nur den Gesamtbetrag, nicht Bemessungsgrundlage
+    # oder Monatsbetrag: 0,25 % von 43.000 € = 107,50 € je Monat (ungerundet)
+    # × 4 angefangene Monate = 430 € — nicht 428 € (Rundung des Monatsbetrags
+    # auf 107 € vor der Multiplikation wäre falsch).
+    erg = r.berechne_verspaetungszuschlag(
+        festgesetzte_steuer=43000, anzurechnende_betraege=0,
+        abgabedatum=dt.date(2026, 11, 15), fristende=dt.date(2026, 7, 31))
+    assert erg.angefangene_monate == 4
+    assert erg.zuschlag_pro_monat == Decimal("107.5")
+    assert erg.zuschlag_gesamt == Decimal("430")
+
+
 def test_verspaetungszuschlag_hoechstbetrag_gedeckelt():
     erg = r.berechne_verspaetungszuschlag(
         festgesetzte_steuer=5000000, anzurechnende_betraege=0,

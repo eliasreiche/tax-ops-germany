@@ -27,14 +27,14 @@ def _report(tmp_path: Path, name: str, eingabe: dict) -> Path:
 def test_lehnt_nicht_executor_report_ab(tmp_path):
     kaputt = schreibe(tmp_path / "kaputt.json", {"quelle": "modell", "kalender_termine": []})
     ergebnis = lauf(KALENDER, "--report", kaputt, "--format", "ics")
-    assert ergebnis.returncode == 1
+    assert ergebnis.returncode == 2
     assert "Fehler:" in ergebnis.stderr
 
 
 def test_lehnt_report_ohne_kalender_termine_ab(tmp_path):
     kaputt = schreibe(tmp_path / "kaputt.json", {"quelle": "executor"})
     ergebnis = lauf(KALENDER, "--report", kaputt, "--format", "ics")
-    assert ergebnis.returncode == 1
+    assert ergebnis.returncode == 2
 
 
 def test_ein_vevent_je_kalender_termin(tmp_path):
@@ -84,7 +84,7 @@ def test_format_beide_verlangt_output_dir(tmp_path):
     rep = _report(tmp_path, "e", {
         "modus": "einspruch", "bundesland": "NW", "bekanntgabe_datum": "2026-01-15"})
     ergebnis = lauf(KALENDER, "--report", rep, "--format", "beide")
-    assert ergebnis.returncode == 1
+    assert ergebnis.returncode == 2
 
 
 def test_format_beide_schreibt_zwei_dateien(tmp_path):

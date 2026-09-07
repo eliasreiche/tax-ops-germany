@@ -1,10 +1,10 @@
 """CLI-Tests für core/calc/ao_fristen/executor.py (P2).
 
-Deckt ab: Exit-Codes (0 Report/1 Eingabefehler/2 nicht abgedeckt — abweichend
-von der allgemeinen Executor-Konvention in CONVENTIONS.md, siehe SKILL.md
-schema/README.md „Exit-Codes"), Ablehnung nicht abgedeckter Eingaben je
-Modus, und dass jeder Modus einen validen Report mit `kalender_termine`
-liefert.
+Deckt ab: Exit-Codes (0 Report/1 fachlicher Fehler bzw. nicht abgedeckt/2
+Eingabefehler — folgt der allgemeinen Executor-Konvention in
+CONVENTIONS.md, siehe SKILL.md/schema/README.md „Exit-Codes"), Ablehnung
+nicht abgedeckter Eingaben je Modus, und dass jeder Modus einen validen
+Report mit `kalender_termine` liefert.
 """
 from __future__ import annotations
 
@@ -39,32 +39,32 @@ def test_exit_1_bei_unbekanntem_modus(tmp_path):
     assert ergebnis.returncode == 1
 
 
-def test_exit_1_bei_kaputtem_json(tmp_path):
+def test_exit_2_bei_kaputtem_json(tmp_path):
     eingabe = schreibe(tmp_path / "a.json", "{kaputt")
     ergebnis = lauf(EXECUTOR, "--input", eingabe)
-    assert ergebnis.returncode == 1
+    assert ergebnis.returncode == 2
 
 
-def test_exit_1_bei_fehlender_eingabedatei(tmp_path):
+def test_exit_2_bei_fehlender_eingabedatei(tmp_path):
     ergebnis = lauf(EXECUTOR, "--input", str(tmp_path / "fehlt.json"))
-    assert ergebnis.returncode == 1
+    assert ergebnis.returncode == 2
 
 
-def test_exit_2_bei_aufgabe_zur_post_vor_2025(tmp_path):
+def test_exit_1_bei_aufgabe_zur_post_vor_2025(tmp_path):
     eingabe = schreibe(tmp_path / "a.json", {
         "modus": "einspruch", "bundesland": "NW",
         "aufgabe_zur_post_datum": "2024-12-31"})
     ergebnis = lauf(EXECUTOR, "--input", eingabe)
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
     assert "Nicht abgedeckt:" in ergebnis.stderr
 
 
-def test_exit_2_bei_land_forstwirt_ab_vz2025(tmp_path):
+def test_exit_1_bei_land_forstwirt_ab_vz2025(tmp_path):
     eingabe = schreibe(tmp_path / "a.json", {
         "modus": "abgabefrist", "veranlagungszeitraum": 2025,
         "gruppe": "land_forstwirt", "bundesland": "NW"})
     ergebnis = lauf(EXECUTOR, "--input", eingabe)
-    assert ergebnis.returncode == 2
+    assert ergebnis.returncode == 1
 
 
 def test_alle_modi_liefern_kalender_termine(tmp_path):

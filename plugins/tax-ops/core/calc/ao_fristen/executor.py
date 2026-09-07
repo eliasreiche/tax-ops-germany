@@ -25,8 +25,10 @@ skills/ao-fristenrechner/schema/README.md):
 CLI:
     python3 core/calc/ao_fristen/executor.py --input ANFRAGE.json [--output REPORT.json]
 
-Exit-Codes: 0 = Report erzeugt, 1 = Eingabefehler, 2 = im Quellen-Dossier
-nicht belegte Regel (nicht abgedeckt) — siehe rechner.py Modul-Docstring.
+Exit-Codes (CONVENTIONS.md): 0 = Report erzeugt, 1 = fachlicher Fehler/
+Schema-Verstoß (dazu zählt auch eine im Quellen-Dossier nicht belegte Regel
+— "nicht abgedeckt", siehe rechner.py Modul-Docstring), 2 = Eingabefehler
+(Eingabedatei fehlt, ungültiges JSON).
 """
 from __future__ import annotations
 
@@ -173,12 +175,12 @@ def main(argv: list[str] | None = None) -> int:
         eingabe = lese_json_objekt(input_pfad)
     except CliFehler as exc:
         print(f"Fehler: {exc}", file=sys.stderr)
-        return 1
+        return 2
     try:
         report = baue_report(eingabe, quelle_datei=str(input_pfad))
     except AONichtAbgedeckt as exc:
         print(f"Nicht abgedeckt: {exc}", file=sys.stderr)
-        return 2
+        return 1
     except (AOEingabeFehler, ValueError, OverflowError) as exc:
         print(f"Fehler: {exc}", file=sys.stderr)
         return 1
@@ -186,7 +188,7 @@ def main(argv: list[str] | None = None) -> int:
         schreibe_report(report, args.output)
     except CliFehler as exc:
         print(f"Fehler: {exc}", file=sys.stderr)
-        return 1
+        return 2
     return 0
 
 

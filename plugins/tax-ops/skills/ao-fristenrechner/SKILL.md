@@ -85,10 +85,11 @@ Bekanntgabe/Fälligkeit abstellt — nennt der Nutzer keines, fragt Claude nach.
      --input <anfrage.json> --output <report.json>
    ```
 
-3. **Bei Exit-Code 2 (nicht abgedeckt)** gibt Claude die Meldung wieder und
-   erklärt, warum die Eingabe eine im Quellen-Dossier nicht belegte Regel
-   bräuchte (siehe „Nicht abgedeckt" unten) — kein Ergebnis wird geraten.
-   **Bei Exit-Code 1 (Eingabefehler)** fragt Claude nach der korrigierten
+3. **Bei Exit-Code 1 (fachlicher Fehler, u. a. „nicht abgedeckt")** gibt
+   Claude die Meldung wieder und erklärt, warum die Eingabe ggf. eine im
+   Quellen-Dossier nicht belegte Regel bräuchte (siehe „Nicht abgedeckt"
+   unten) — kein Ergebnis wird geraten.
+   **Bei Exit-Code 2 (Eingabefehler)** fragt Claude nach der korrigierten
    Eingabe.
 4. **Claude stellt den Report als Rechenkette dar**: jeder Schritt mit Norm
    und Zwischenergebnis, alle `warnungen` und `hinweise` sichtbar — bei
@@ -162,15 +163,23 @@ Eingabe: `veranlagungszeitraum: 2024, gruppe: "beraten", bundesland: "NW"`.
 
 Festgesetzte Steuer 1.000 €, keine anzurechnenden Beträge, Fristende
 31.07.2026, Abgabe 15.10.2026 → 3 angefangene Monate. 0,25 % von 1.000 €
-(= 2,50 €, abgerundet 0 €) liegt unter dem Mindestbetrag von 25 €/Monat →
-**75 € Gesamtzuschlag** (3 × 25 €). Pflicht-/Ermessens-Hinweis (§ 152 Abs. 1
-/ Abs. 2 AO) wird ungewertet mitgegeben. **Zweitkontrolle bleibt zwingend.**
+(= 2,50 €, ungerundet) liegt unter dem Mindestbetrag von 25 €/Monat →
+**75 € Gesamtzuschlag** (3 × 25 €, danach Abrundung auf volle Euro nach
+§ 152 Abs. 10 AO — hier bereits ganzzahlig). Pflicht-/Ermessens-Hinweis
+(§ 152 Abs. 1 / Abs. 2 AO) wird ungewertet mitgegeben. **Zweitkontrolle
+bleibt zwingend.**
+
+Zweites Beispiel (Rundungsgrenze): Bemessungsgrundlage 43.000 €, 4
+angefangene Monate. 0,25 % von 43.000 € = 107,50 €/Monat, **ungerundet** ×
+4 = 430 € → nach § 152 Abs. 10 AO auf volle Euro abgerundet: **430 €**
+(nicht 428 € — eine Rundung des Monatsbetrags vor der Multiplikation wäre
+falsch, § 152 Abs. 10 AO rundet nur den Gesamtbetrag).
 
 ## Nicht abgedeckt
 
 Diese Regeln sind im Quellen-Dossier `[unverifiziert]` oder als „offen"
 geführt und werden **nicht** implementiert — Eingaben, die sie bräuchten,
-lehnt der Executor mit Exit-Code 2 ab:
+lehnt der Executor mit Exit-Code 1 ab:
 
 - **Dreitagesfiktion vor dem 01.01.2025** (§ 122 Abs. 2 Nr. 1 AO a. F.): im
   Dossier nur über eine Sekundärquelle belegt. `aufgabe_zur_post_datum`
@@ -200,10 +209,6 @@ lehnt der Executor mit Exit-Code 2 ab:
 - **Wortlaut § 1 Abs. 15 EGAO** (Übergangsregel Viertagesfiktion) und
   **AEAO-Volltext** zu § 122 AO: nur die Existenz, nicht der Wortlaut ist
   belegt — nicht Teil der Rechenlogik.
-- **Rundung der Verspätungszuschlag-Bemessungsgrundlage**: das Dossier
-  zitiert § 152 Abs. 5 Satz 2 AO gekürzt (mit „…"); dieser Rechner rundet
-  Bemessungsgrundlage und Monatsbetrag konservativ auf volle Euro ab —
-  eine dokumentierte Annahme, keine primärbelegte Vorschrift.
 - **„Bankarbeitstag"** bei der SV-Fälligkeit (§ 23 Abs. 1 Satz 2 SGB IV):
   im Dossier nicht definiert; dieser Rechner versteht darunter einen
   Werktag ohne bundesweiten gesetzlichen Feiertag (bundesweit statt

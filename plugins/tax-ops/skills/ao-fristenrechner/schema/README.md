@@ -29,7 +29,7 @@ oder mit direktem Bekanntgabedatum:
 |---|---|---|---|
 | `bundesland` | ja | `BW BY BE BB HB HH HE MV NI NW RP SL SN ST SH TH` | Ort der Bekanntgabe (§ 108 Abs. 3 AO). |
 | `bekanntgabe_datum` | entweder dies … | ISO-Datum | Bekanntgabe des Verwaltungsakts, direkt. |
-| `aufgabe_zur_post_datum` | … oder dies | ISO-Datum, `>= 2025-01-01` | Aufgabe zur Post; Bekanntgabe wird über die Viertagesfiktion (§ 122 Abs. 2 Nr. 1 AO) berechnet. Vor 2025-01-01: Exit 2 (nicht abgedeckt). |
+| `aufgabe_zur_post_datum` | … oder dies | ISO-Datum, `>= 2025-01-01` | Aufgabe zur Post; Bekanntgabe wird über die Viertagesfiktion (§ 122 Abs. 2 Nr. 1 AO) berechnet. Vor 2025-01-01: Exit 1 (nicht abgedeckt). |
 | `jahresfrist` | nein | `true`/`false` (Default `false`) | `true` = § 356 Abs. 2 AO (ein Jahr, fehlende/fehlerhafte Rechtsbehelfsbelehrung) statt § 355 Abs. 1 AO (ein Monat). |
 | `fiktion_verschieben` | nein | `true`/`false` (Default `false`) | Ob der Bekanntgabe-Fiktionstag selbst nach § 108 Abs. 3 AO verschoben wird (nur bei `aufgabe_zur_post_datum`) — Default `false`, weil im Dossier `[unverifiziert]` (siehe SKILL.md „Nicht abgedeckt"). |
 
@@ -47,7 +47,7 @@ oder mit direktem Bekanntgabedatum:
 | Feld | Pflicht | Werte | Bedeutung |
 |---|---|---|---|
 | `veranlagungszeitraum` | ja | ganze Jahreszahl `>= 2020` | Steuerjahr. |
-| `gruppe` | ja | `nicht_beraten` \| `beraten` \| `land_forstwirt` | Fallgruppe nach § 149 Abs. 2/3 AO. `land_forstwirt` nur für VZ 2020–2024 hinterlegt (EGAO-Tabelle); ab VZ 2025 Exit 2. |
+| `gruppe` | ja | `nicht_beraten` \| `beraten` \| `land_forstwirt` | Fallgruppe nach § 149 Abs. 2/3 AO. `land_forstwirt` nur für VZ 2020–2024 hinterlegt (EGAO-Tabelle); ab VZ 2025 Exit 1 (nicht abgedeckt). |
 | `bundesland` | ja | wie oben | Für die § 108 Abs. 3 AO-Verschiebung des (VZ-abhängigen) Nenndatums. |
 
 Für VZ 2020–2024 liefert
@@ -163,15 +163,16 @@ Zweitkontroll-Klausel in der `DESCRIPTION`.
 **CSV (`;`-getrennt).** Eine Zeile je Termin, Kopf: `datum;vorfrist;
 vorlauftage;titel;norm;modus;aktenzeichen;uid;quelle`.
 
-Exit-Codes: `0` = Export erzeugt, `1` = Eingabefehler (kein Traceback).
+Exit-Codes: `0` = Export erzeugt, `2` = Eingabefehler (Report-Datei fehlt,
+ungültiges JSON, kein gültiger Executor-Report, Schreibfehler; kein
+Traceback) — folgt der allgemeinen Executor-Konvention in
+[CONVENTIONS.md](https://github.com/eliasreiche/tax-ops-germany/blob/main/CONVENTIONS.md).
 
 ## Exit-Codes des `executor.py`
 
-`0` = Report erzeugt · `1` = Eingabefehler (fehlendes Pflichtfeld, falscher
-Typ, unbekanntes Bundesland/Steuerart/Modus) · `2` = die Eingabe bräuchte
-eine im Quellen-Dossier nicht belegte Regel (siehe SKILL.md „Nicht
-abgedeckt") — abweichend von der allgemeinen Executor-Konvention in
-[CONVENTIONS.md](https://github.com/eliasreiche/tax-ops-germany/blob/main/CONVENTIONS.md)
-(dort `1`/`2` umgekehrt belegt),
-bewusst so für diesen Skill festgelegt, damit „nicht abgedeckt" von einem
-gewöhnlichen Eingabefehler unterscheidbar bleibt.
+`0` = Report erzeugt · `1` = fachlicher Fehler/Schema-Verstoß (fehlendes
+Pflichtfeld, falscher Typ, unbekanntes Bundesland/Steuerart/Modus, sowie
+die Eingabe bräuchte eine im Quellen-Dossier nicht belegte Regel — siehe
+SKILL.md „Nicht abgedeckt") · `2` = Eingabefehler (Eingabedatei fehlt,
+ungültiges JSON) — folgt der allgemeinen Executor-Konvention in
+[CONVENTIONS.md](https://github.com/eliasreiche/tax-ops-germany/blob/main/CONVENTIONS.md).

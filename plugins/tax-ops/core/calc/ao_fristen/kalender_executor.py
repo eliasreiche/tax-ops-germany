@@ -25,7 +25,9 @@ CLI:
       [--output DATEI | --output-dir ORDNER] \
       [--aktenzeichen AZ] [--vorlauftage N]
 
-Exit-Codes: 0 = Export erzeugt, 1 = Eingabefehler (kein Traceback).
+Exit-Codes (CONVENTIONS.md): 0 = Export erzeugt, 2 = Eingabefehler
+(Report-Datei fehlt, ungültiges JSON, kein gültiger Executor-Report,
+Schreibfehler; kein Traceback).
 """
 from __future__ import annotations
 
@@ -47,7 +49,7 @@ ZWEITKONTROLLE = ("Zweitkontrolle bleibt zwingend: Dieser Export ersetzt keinen 
 
 
 class ExportEingabeFehler(ValueError):
-    """Eingabefehler → Exit 1 mit klarer Meldung, nie Traceback."""
+    """Eingabefehler → Exit 2 mit klarer Meldung, nie Traceback."""
 
 
 # --------------------------------------------------------------------------
@@ -303,7 +305,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     except ExportEingabeFehler as exc:
         print(f"Fehler: {exc}", file=sys.stderr)
-        return 1
+        return 2
 
 
 if __name__ == "__main__":

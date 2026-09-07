@@ -37,10 +37,10 @@ Jeder Datums-/Geldwert stammt aus diesem Modul, nie vom Modell
   Kanzleisache. Die Ausnahme des § 152 Abs. 8 Nr. 1 AO für monatliche/
   vierteljährliche Steueranmeldungen wird als Hinweis ausgegeben; der
   Rechner ist nur für Jahressteuererklärungen vorgesehen.
-* Rundung beim Verspätungszuschlag: Bemessungsgrundlage und Monatsbetrag
-  werden auf volle Euro abgerundet — diese Rundungsmechanik steht nicht
-  wörtlich im Quellen-Dossier (dort mit „…" gekürzt) und ist eine bewusste,
-  konservative Annahme (siehe SKILL.md).
+* Rundung beim Verspätungszuschlag: § 152 Abs. 10 AO rundet nur den
+  **Gesamtbetrag** auf volle Euro ab ("Der Verspätungszuschlag ist auf
+  volle Euro abzurunden"). Bemessungsgrundlage und Monatsbetrag bleiben
+  ungerundet (Decimal) — dafür gibt es keine gesetzliche Rundungsvorschrift.
 """
 from __future__ import annotations
 
@@ -71,11 +71,13 @@ VORAUSZAHLUNGEN_PFAD = _HIER / "vorauszahlungstermine.json"
 VIERTAGESFIKTION_AB = _dt.date(2025, 1, 1)
 FIKTION_TAGE = 4
 
+# § 152 AO: https://www.gesetze-im-internet.de/ao_1977/__152.html
+# geprueft_am: 2026-09-08
 PFLICHT_SCHWELLE_MONATE = 14  # § 152 Abs. 2 Nr. 1 AO (Regelfall, ungewertet)
 LAND_FORST_SCHWELLE_MONATE = 19  # § 152 Abs. 2 Nr. 2 AO (ungewertet)
 VERSPAETUNGSZUSCHLAG_PROZENTSATZ = Decimal("0.0025")  # § 152 Abs. 5 Satz 2 AO
 VERSPAETUNGSZUSCHLAG_MINDESTBETRAG = Decimal("25")     # je angefangenem Monat
-VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG = Decimal("25000")  # § 152 Abs. 10 AO
+VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG = Decimal("25000")  # § 152 Abs. 10 AO, Höchstbetrag
 SCHONFRIST_TAGE = 3  # § 240 Abs. 3 Satz 1 AO
 
 
@@ -702,18 +704,15 @@ def berechne_verspaetungszuschlag(*, festgesetzte_steuer: Any,
         "§ 152 Abs. 8 Nr. 1 AO: für monatlich oder vierteljährlich abzugebende "
         "Steueranmeldungen (USt-VA, LSt-Anmeldung) gilt Abs. 5 nicht — dieser Rechner ist "
         "nur für Jahressteuererklärungen vorgesehen.",
-        "Rundung (Bemessungsgrundlage und Monatsbetrag auf volle Euro abgerundet) ist eine "
-        "bewusste, konservative Annahme dieses Rechners — im Quellen-Dossier nicht "
-        "wörtlich belegt (dort mit „…" + '"' + " gekürzt zitiert).",
     ]
 
     bemessung = steuer - anzurechnen
     if bemessung < 0:
         bemessung = Decimal("0")
-    bemessung = bemessung.quantize(Decimal("1"), rounding=ROUND_DOWN)
     _schritt(kette, "§ 152 Abs. 5 Satz 2 AO",
-            f"Bemessungsgrundlage: {steuer} ./. {anzurechnen} (anzurechnende Beträge), "
-            "abgerundet auf volle Euro.", None)
+            f"Bemessungsgrundlage: {steuer} ./. {anzurechnen} (anzurechnende Beträge). "
+            "Keine gesetzliche Rundung auf dieser Stufe (§ 152 Abs. 10 AO rundet nur "
+            "den Gesamtbetrag).", None)
 
     monate = _angefangene_monate(fristende, abgabedatum)
     _schritt(kette, "§ 152 Abs. 5 Satz 1 AO",
@@ -723,20 +722,25 @@ def berechne_verspaetungszuschlag(*, festgesetzte_steuer: Any,
     if monate == 0:
         zuschlag_pro_monat = Decimal("0")
     else:
-        prozent_betrag = (bemessung * VERSPAETUNGSZUSCHLAG_PROZENTSATZ).quantize(
-            Decimal("1"), rounding=ROUND_DOWN)
+        prozent_betrag = bemessung * VERSPAETUNGSZUSCHLAG_PROZENTSATZ
         zuschlag_pro_monat = max(prozent_betrag, VERSPAETUNGSZUSCHLAG_MINDESTBETRAG)
     _schritt(kette, "§ 152 Abs. 5 Satz 2 AO",
             f"0,25 % der Bemessungsgrundlage ({bemessung} €) je angefangenem Monat, "
-            f"mindestens {VERSPAETUNGSZUSCHLAG_MINDESTBETRAG} € je Monat.",
+            f"mindestens {VERSPAETUNGSZUSCHLAG_MINDESTBETRAG} € je Monat "
+            f"— hier {zuschlag_pro_monat} € je Monat, ungerundet.",
             None)
 
-    zuschlag_roh = zuschlag_pro_monat * monate
-    hoechstbetrag_erreicht = zuschlag_roh > VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG
-    zuschlag_gesamt = min(zuschlag_roh, VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG)
+    zuschlag_summe = zuschlag_pro_monat * monate
+    hoechstbetrag_erreicht = zuschlag_summe > VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG
+    zuschlag_gedeckelt = min(zuschlag_summe, VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG)
     _schritt(kette, "§ 152 Abs. 10 AO",
-            f"Gesamtbetrag {zuschlag_roh} €, gedeckelt auf höchstens "
-            f"{VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG} €.", None)
+            f"Gesamtbetrag {zuschlag_summe} € ({monate} × {zuschlag_pro_monat} €), "
+            f"gedeckelt auf höchstens {VERSPAETUNGSZUSCHLAG_HOECHSTBETRAG} €.", None)
+
+    zuschlag_gesamt = zuschlag_gedeckelt.quantize(Decimal("1"), rounding=ROUND_DOWN)
+    _schritt(kette, "§ 152 Abs. 10 AO",
+            f"Abrundung auf volle Euro: {zuschlag_gedeckelt} € → {zuschlag_gesamt} €.",
+            None)
 
     return VerspaetungszuschlagErgebnis(
         festgesetzte_steuer=steuer, anzurechnende_betraege=anzurechnen,
