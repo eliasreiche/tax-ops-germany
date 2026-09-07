@@ -60,6 +60,8 @@ Datei rein, JSON-Report raus.
 
 ## Mandanten-Zuordnung (`zuordnung_stufe`)
 
+Bei `zuordnung_stufe: "mehrdeutig"` (gemeinsamer Namensbestandteil, kein Name im Text) bleibt `mandant` `null`; die infrage kommenden Mandanten stehen in `zuordnung_kandidaten`, die Mail erscheint zusätzlich unter `unzugeordnet`. Die Auswahl trifft der Mensch.
+
 In dieser Reihenfolge (die erste zutreffende gewinnt), jeweils gegen
 Absender-Domain/-Name und Betreff geprüft:
 

@@ -177,9 +177,13 @@ def _bewerte_eine_mail(mail: dict[str, Any], mandanten: list[Mandant],
     _, steuernummern = _provenienz_geprueft(
         mail_id, betreff, text, bescheiddatum_roh, steuernummern_roh)
 
+    # Mehrdeutige Zuordnung (gemeinsamer Namensbestandteil) nennt keinen
+    # Mandanten als zugeordnet, sondern nur die Kandidaten (P2: Mensch wählt).
+    mehrdeutig = bool(treffer) and treffer[1].kategorie == "moeglicher_treffer"
     eintrag = {
         "mail_id": mail_id,
-        "mandant": treffer[0].name if treffer else None,
+        "mandant": treffer[0].name if treffer and not mehrdeutig else None,
+        "zuordnung_kandidaten": treffer[1].kandidaten if mehrdeutig else None,
         "zuordnung_stufe": treffer[1].stufe if treffer else None,
         "zuordnung_score": treffer[1].score if treffer else None,
         "zuordnung_begruendung": treffer[1].begruendung if treffer else None,
@@ -224,8 +228,9 @@ def baue_report(eingabe: dict[str, Any], input_pfad: Path) -> dict[str, Any]:
                 "mail_id": eintrag["mail_id"],
                 "betreff": mail.get("betreff"),
                 "von": mail.get("von"),
-                "grund": "kein Mandant über der Zuordnungs-Schwelle oder Gleichstand "
-                        "zwischen mehreren Mandanten",
+                "grund": ("mehrdeutig, Kandidaten: " + ", ".join(eintrag["zuordnung_kandidaten"])
+                          if eintrag.get("zuordnung_kandidaten")
+                          else "kein Mandant über der Zuordnungs-Schwelle"),
             })
 
     erledigt_vorschlaege = finde_erledigt_vorschlaege(offene_aufgaben, gesendet, mandanten)

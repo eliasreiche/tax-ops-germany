@@ -1,7 +1,7 @@
 {
   "meta": {
     "erzeugt_von": "triage/executor.py",
-    "quelle_datei": "beispiel-eingabe.json",
+    "quelle_datei": "plugins/tax-ops/skills/aufgaben-triage/schema/beispiel-eingabe.json",
     "bundesland": "NW",
     "heute": "2026-09-08",
     "anzahl_mails": 8,
@@ -13,6 +13,7 @@
     {
       "mail_id": "mail-001",
       "mandant": "Backstube Sonnenschein GmbH",
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": "S2",
       "zuordnung_score": 0.6667,
       "zuordnung_begruendung": "'Backstube Sonnenschein GmbH' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {backstube, sonnenschein} ⊆ {backstube, sonnenschein, steuerbescheid}",
@@ -86,6 +87,7 @@
     {
       "mail_id": "mail-002",
       "mandant": "Muster-Handel KG",
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": "S2",
       "zuordnung_score": 0.6667,
       "zuordnung_begruendung": "'Muster-Handel KG' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {handel, muster} ⊆ {handel, muster, pruefungsanordnung}",
@@ -124,6 +126,7 @@
     {
       "mail_id": "mail-003",
       "mandant": "Muster-Handel KG",
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": "S2",
       "zuordnung_score": 0.5,
       "zuordnung_begruendung": "'Muster-Handel KG' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {handel, muster} ⊆ {handel, mahnung, muster, umsatzsteuer}",
@@ -162,6 +165,7 @@
     {
       "mail_id": "mail-004",
       "mandant": "Backstube Sonnenschein GmbH",
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": "S2",
       "zuordnung_score": 0.6667,
       "zuordnung_begruendung": "'Backstube Sonnenschein GmbH' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {backstube, sonnenschein} ⊆ {backstube, sonnenschein, vorauszahlungsbescheid}",
@@ -200,6 +204,7 @@
     {
       "mail_id": "mail-005",
       "mandant": "Backstube Sonnenschein GmbH",
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": "domain",
       "zuordnung_score": 1.0,
       "zuordnung_begruendung": "Absender-Domain 'backstube-sonnenschein.example' == Alias 'backstube-sonnenschein.example' von Mandant 'Backstube Sonnenschein GmbH'",
@@ -223,6 +228,7 @@
     {
       "mail_id": "mail-006",
       "mandant": null,
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": null,
       "zuordnung_score": null,
       "zuordnung_begruendung": null,
@@ -246,6 +252,7 @@
     {
       "mail_id": "mail-007",
       "mandant": "Muster-Handel KG",
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": "S2",
       "zuordnung_score": 0.6667,
       "zuordnung_begruendung": "'Muster-Handel KG' vs. Feld 'betreff': Token-Teilmenge nach Normalisierung: {handel, muster} ⊆ {handel, muster, steuerbescheid}",
@@ -291,6 +298,7 @@
     {
       "mail_id": "mail-008",
       "mandant": null,
+      "zuordnung_kandidaten": null,
       "zuordnung_stufe": null,
       "zuordnung_score": null,
       "zuordnung_begruendung": null,
@@ -330,13 +338,13 @@
       "mail_id": "mail-006",
       "betreff": "Rundschreiben September 2026",
       "von": "Newsletter <newsletter@stb-verband.example>",
-      "grund": "kein Mandant über der Zuordnungs-Schwelle oder Gleichstand zwischen mehreren Mandanten"
+      "grund": "kein Mandant über der Zuordnungs-Schwelle"
     },
     {
       "mail_id": "mail-008",
       "betreff": "Allgemeine Anfrage",
       "von": "Unbekannt <kontakt@drittfirma.example>",
-      "grund": "kein Mandant über der Zuordnungs-Schwelle oder Gleichstand zwischen mehreren Mandanten"
+      "grund": "kein Mandant über der Zuordnungs-Schwelle"
     }
   ]
 }

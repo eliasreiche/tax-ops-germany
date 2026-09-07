@@ -97,3 +97,18 @@ def test_exit_1_bei_fehlender_mandanten_csv(tmp_path):
     eingabe = schreibe(tmp_path / "a.json", {**BASIS_EINGABE, "mandanten": "fehlt.csv"})
     ergebnis = lauf(EXECUTOR, "--input", eingabe)
     assert ergebnis.returncode == 1
+
+
+def test_mehrdeutige_zuordnung_nennt_keinen_mandanten(tmp_path):
+    # "Müller GmbH" vs. "Müller & Sohn KG", Absender nur "Mueller", Text ohne Namen:
+    # Report darf keinen Mandanten als zugeordnet ausweisen, nur Kandidaten.
+    eingabe = dict(BASIS_EINGABE)
+    eingabe["mandanten"] = [{"name": "Müller GmbH"}, {"name": "Müller & Sohn KG"}]
+    eingabe["mails"] = [{"id": "m1", "datum": "2026-09-08", "von": "Mueller <inh@example.com>",
+                         "betreff": "Steuerliche Frage", "text": "Kurze Frage."}]
+    rep = report(EXECUTOR, "--input", schreibe(tmp_path / "a.json", eingabe))
+    v = rep["vorschlaege"][0]
+    assert v["mandant"] is None
+    assert v["zuordnung_stufe"] == "mehrdeutig"
+    assert set(v["zuordnung_kandidaten"]) == {"Müller GmbH", "Müller & Sohn KG"}
+    assert "mehrdeutig" in rep["unzugeordnet"][0]["grund"]
