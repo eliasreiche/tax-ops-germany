@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Struktur-Lint (Berufsrechts-Gate + Containment-Gate B)
+        run: python3 plugins/tax-ops/core/verify/struktur_lint.py
+      - name: pytest (inkl. Gate A Install-Smoke + Gate B Containment)
+        run: |
+          pip install pytest
+          pytest -q
+      - name: Install-Smoke-Test (Gate A, ausgeliefertes Artefakt)
+        run: pytest -q tests/test_install_smoke.py

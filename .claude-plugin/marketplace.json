@@ -1,0 +1,17 @@
+{
+  "name": "tax-ops-germany",
+  "owner": {
+    "name": "Elias Reiche"
+  },
+  "metadata": {
+    "description": "Non-billable Workflows deutscher Steuerkanzleien: Claude-Skills + deterministische Python-Executors. Keine Hilfeleistung in Steuersachen.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "tax-ops",
+      "source": "./plugins/tax-ops",
+      "description": "Non-billable Steuerkanzlei-Workflows: Skills (Fristen, Vergütung, Mandant, Compliance) samt geteilten Executors in einem Plugin — core/ ist Teil der Auslieferung. Keine Hilfeleistung in Steuersachen."
+    }
+  ]
+}

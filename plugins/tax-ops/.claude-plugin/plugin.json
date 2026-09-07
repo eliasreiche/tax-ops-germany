@@ -1,0 +1,8 @@
+{
+  "name": "tax-ops",
+  "description": "Non-billable Workflows deutscher Steuerkanzleien: Claude-Skills + deterministische Python-Executors. Skills folgen mit Welle 6. Keine Hilfeleistung in Steuersachen.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Elias Reiche"
+  }
+}
