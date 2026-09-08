@@ -1,6 +1,12 @@
 ---
 name: tax-ops-feedback
 description: "Erstellt einen strukturierten Fehlerreport OHNE Mandantendaten und schickt ihn nach Freigabe an den Maintainer der tax-ops-Skills (elias@law-flow.de). Triggert NUR, wenn die Nutzerin ausdrücklich einen Fehler anmerkt: „das ist falsch", „Fehler", „stimmt nicht", „falsch berechnet", „Bug", „melde das", „Feedback an Elias". Nie bei bloßen Rückfragen, nie automatisch."
+status: beta
+welle: 6
+bereich: querschnitt
+stberg_einordnung: "organisatorisch, keine Hilfeleistung: Der Skill erstellt und versendet einen Fehlerreport über die Software selbst; er berührt keine steuerliche Würdigung und keinen Mandantenfall."
+daten_hinweis: "Der Report darf keine Mandantendaten enthalten (Whitelist-Vorlage, Sperrliste, Regex-Prüfung, Sichtfreigabe durch die Nutzerin). Der Versand geht an den Maintainer außerhalb der Kanzlei; deshalb gilt die Sperrliste absolut. Nichts wird gespeichert."
+haftung: "Meldekanal, keine Fehlerbehebung: Der Report ändert nichts am Ergebnis des gemeldeten Skills. Ob ein gemeldetes Ergebnis wirklich falsch ist, prüft der Maintainer; die Zweitkontrolle der Kanzlei bleibt unberührt."
 ---
 
 # tax-ops-feedback

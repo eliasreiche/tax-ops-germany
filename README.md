@@ -105,6 +105,7 @@ sind branchenunabhängig und direkt einsetzbar:
 |---|---|---|---|
 | [`ao-fristenrechner`](plugins/tax-ops/skills/ao-fristenrechner/SKILL.md) | `fristen` | 6 | 🧪 `beta` |
 | [`aufgaben-triage`](plugins/tax-ops/skills/aufgaben-triage/SKILL.md) | `posteingang` | 6 | 🧪 `beta` |
+| [`tax-ops-feedback`](plugins/tax-ops-feedback/skills/tax-ops-feedback/SKILL.md) | `querschnitt` | 6 | 🧪 `beta` |
 | [`stbvv-rechner`](plugins/tax-ops/skills/stbvv-rechner/SKILL.md) | `verguetung` | 6 | 🧪 `beta` |
 <!-- skill-status:ende -->
 
