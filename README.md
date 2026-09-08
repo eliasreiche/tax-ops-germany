@@ -105,7 +105,6 @@ sind branchenunabhängig und direkt einsetzbar:
 |---|---|---|---|
 | [`ao-fristenrechner`](plugins/tax-ops/skills/ao-fristenrechner/SKILL.md) | `fristen` | 6 | 🧪 `beta` |
 | [`aufgaben-triage`](plugins/tax-ops/skills/aufgaben-triage/SKILL.md) | `posteingang` | 6 | 🧪 `beta` |
-| [`tax-ops-feedback`](plugins/tax-ops-feedback/skills/tax-ops-feedback/SKILL.md) | `querschnitt` | 6 | 🧪 `beta` |
 | [`stbvv-rechner`](plugins/tax-ops/skills/stbvv-rechner/SKILL.md) | `verguetung` | 6 | 🧪 `beta` |
 <!-- skill-status:ende -->
 
@@ -130,10 +129,6 @@ ist ein **Snapshot** der branchenunabhängigen Rechen-/Verifikationsmodule aus
 `legal-ops-germany` @ Commit `622ddd0` — kein automatischer Sync, siehe
 [`core/VENDORED.md`](plugins/tax-ops/core/VENDORED.md). Steuerspezifische
 Rechner (AO-Fristen, StBVV) entstehen hier neu.
-
-## Feedback-Plugin `tax-ops-feedback`
-
-Zweites, winziges Plugin im selben Marketplace: Wenn die Nutzerin ausdrücklich einen Fehler eines tax-ops-Skills anmerkt, baut Claude einen strukturierten Report **ohne Mandantendaten** (Whitelist-Vorlage, Sperrliste, `pruefe_report.py` als Regex-Netz), zeigt ihn zur Freigabe und schickt ihn an den Maintainer, per verbundenem Mail-Werkzeug oder `mailto:`-Link. Installation wie `tax-ops` (siehe unten, Plugin-Name `tax-ops-feedback`).
 
 ## Nutzung
 

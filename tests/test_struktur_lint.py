@@ -41,7 +41,7 @@ def test_skill_dirs_findet_reale_skills():
     # stbvv-rechner und aufgaben-triage (alle Welle 6) sind es jetzt drei. Der
     # Lint muss so oder so grün laufen (siehe test_lint_laeuft_sauber_auf_dem_repo).
     namen = sorted(p.name for p in struktur_lint.skill_dirs())
-    assert namen == ["ao-fristenrechner", "aufgaben-triage", "stbvv-rechner", "tax-ops-feedback"]
+    assert namen == ["ao-fristenrechner", "aufgaben-triage", "stbvv-rechner"]
 
 
 def _skill(tmp_path, name, status, bereich="fristen", extra="", mit_tests=False):
@@ -122,7 +122,7 @@ def test_lint_laeuft_sauber_auf_dem_repo():
         [sys.executable, str(REPO / "plugins" / "tax-ops" / "core" / "verify" / "struktur_lint.py")],
         capture_output=True, text=True)
     assert ergebnis.returncode == 0, ergebnis.stderr
-    assert "sauber (4 Skills geprüft)" in ergebnis.stdout
+    assert "sauber (3 Skills geprüft)" in ergebnis.stdout
 
 
 # --------------------------------------------------------------------------

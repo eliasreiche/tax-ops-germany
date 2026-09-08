@@ -12,11 +12,6 @@
       "name": "tax-ops",
       "source": "./plugins/tax-ops",
       "description": "Non-billable Steuerkanzlei-Workflows: Skills (Fristen, Vergütung, Mandant, Compliance) samt geteilten Executors in einem Plugin — core/ ist Teil der Auslieferung. Keine Hilfeleistung in Steuersachen."
-    },
-    {
-      "name": "tax-ops-feedback",
-      "source": "./plugins/tax-ops-feedback",
-      "description": "Fehlerreport-Skill: meldet ausdrücklich angemerkte Fehler der tax-ops-Skills als strukturierten Report ohne Mandantendaten per E-Mail an den Maintainer, nach Freigabe durch die Nutzerin."
     }
   ]
 }

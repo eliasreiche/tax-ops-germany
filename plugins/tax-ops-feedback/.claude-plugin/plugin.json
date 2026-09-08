@@ -1,6 +1,0 @@
-{
-  "name": "tax-ops-feedback",
-  "description": "Meldet ausdrücklich angemerkte Fehler der tax-ops-Skills als strukturierten, mandantenfreien Report per E-Mail an den Maintainer. Nur nach Freigabe durch die Nutzerin.",
-  "version": "0.1.0",
-  "author": { "name": "Elias Reiche" }
-}
