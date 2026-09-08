@@ -124,7 +124,7 @@ sind branchenunabhängig und direkt einsetzbar:
 
 `tax-ops-germany` ist das Schwesterprojekt von
 [`legal-ops-germany`](https://github.com/eliasreiche/legal-ops-germany)
-(gleicher Autor, gleiche Architektur, Apache-2.0). `plugins/tax-ops/core/`
+(gleicher Autor, gleiche Architektur; dort Apache-2.0, hier GPL-3.0-or-later). `plugins/tax-ops/core/`
 ist ein **Snapshot** der branchenunabhängigen Rechen-/Verifikationsmodule aus
 `legal-ops-germany` @ Commit `622ddd0` — kein automatischer Sync, siehe
 [`core/VENDORED.md`](plugins/tax-ops/core/VENDORED.md). Steuerspezifische
@@ -170,4 +170,4 @@ pip install pytest && pytest -q                         # Tests (inkl. Install-S
 
 ## Lizenz
 
-[Apache-2.0](LICENSE) · Attributionen: [NOTICE](NOTICE)
+[GPL-3.0-or-later](LICENSE) · Attributionen: [NOTICE](NOTICE). Der `core/`-Snapshot stammt aus dem Apache-2.0-lizenzierten `legal-ops-germany` (kompatibel, siehe NOTICE).

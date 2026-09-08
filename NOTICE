@@ -1,9 +1,13 @@
 tax-ops-germany
-Copyright 2026 Elias Reiche
+Copyright (C) 2026 Elias Reiche
 
-Licensed under the Apache License, Version 2.0.
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. See LICENSE for the full text.
 
 ---
 
-Enthält einen Code-Snapshot aus eliasreiche/legal-ops-germany
-(Apache-2.0, selber Autor) — siehe plugins/tax-ops/core/VENDORED.md.
+Enthält einen Code-Snapshot aus eliasreiche/legal-ops-germany (dort Apache-2.0,
+selber Autor; Apache-2.0-Code darf in GPL-3.0-Werke aufgenommen werden) — siehe
+plugins/tax-ops/core/VENDORED.md.

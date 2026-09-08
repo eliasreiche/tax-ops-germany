@@ -3,7 +3,7 @@
 Dieser `core/`-Baum ist ein **Snapshot** aus
 [`eliasreiche/legal-ops-germany`](https://github.com/eliasreiche/legal-ops-germany)
 @ Commit [`622ddd0`](https://github.com/eliasreiche/legal-ops-germany/commit/622ddd0),
-gezogen am 2026-09-08 (D23). Gleicher Autor, gleiche Lizenz (Apache-2.0).
+gezogen am 2026-09-08 (D23). Gleicher Autor; Quelle steht unter Apache-2.0, dieses Repo unter GPL-3.0-or-later (Apache-2.0 ist in GPL-3.0 einbindbar).
 
 ## Übernommene Module
 
