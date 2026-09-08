@@ -130,6 +130,10 @@ ist ein **Snapshot** der branchenunabhängigen Rechen-/Verifikationsmodule aus
 [`core/VENDORED.md`](plugins/tax-ops/core/VENDORED.md). Steuerspezifische
 Rechner (AO-Fristen, StBVV) entstehen hier neu.
 
+## Feedback-Plugin `tax-ops-feedback`
+
+Zweites, winziges Plugin im selben Marketplace: Wenn die Nutzerin ausdrücklich einen Fehler eines tax-ops-Skills anmerkt, baut Claude einen strukturierten Report **ohne Mandantendaten** (Whitelist-Vorlage, Sperrliste, `pruefe_report.py` als Regex-Netz), zeigt ihn zur Freigabe und schickt ihn an den Maintainer, per verbundenem Mail-Werkzeug oder `mailto:`-Link. Installation wie `tax-ops` (siehe unten, Plugin-Name `tax-ops-feedback`).
+
 ## Nutzung
 
 Voraussetzung ist ein datenschutzkonformer Claude-Zugang der Kanzlei (z. B.
