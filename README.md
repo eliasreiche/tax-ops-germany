@@ -71,7 +71,7 @@ Ein Status wird nie übersprungen dokumentiert: `getestet` setzt inhaltlich
 
 ## Skill-Übersicht (geplant)
 
-Fahrplan (Stand der einzelnen Skills: Status-Tabelle oben):
+Fahrplan (Stand der einzelnen Skills: Status-Tabelle unten):
 
 | Skill | Welle | Bereich |
 |---|---|---|
