@@ -6,7 +6,7 @@ welle: 6
 bereich: fristen
 stberg_einordnung: "Rechnen nach Tabelle/Gesetz ohne Subsumtion: der Skill wendet §§ 108, 122, 149, 152, 240 AO und die Termine der Einzelsteuergesetze mechanisch an. Die Einordnung des fristauslösenden Ereignisses (wirksame Bekanntgabe, richtige Fristart, ob eine Rechtsbehelfsbelehrung tatsächlich fehlt/fehlerhaft ist, Pflicht- vs. Ermessensfall beim Verspätungszuschlag) bleibt beim Berufsträger."
 daten_hinweis: "Die Berechnung benötigt nur Datum/Jahr, Fristart bzw. Steuerart, Bundesland und ggf. Steuerbeträge — keine Mandantennamen. Wird beim Kalender-Export ein Aktenzeichen mitgegeben, kann die Export-Datei (.ics/.csv) dieses tragen — dann wie eine Akte behandeln. Beide Executors arbeiten rein lokal, ohne Netzwerkzugriff."
-haftung: "Zweitkontrolle, zwingend: Der Rechner ist das zweite Augenpaar, nie das erste — er ersetzt keine Fristenkontrolle der Kanzlei (Fristenkalender, Vier-Augen-Prinzip, Endkontrolle durch den Berufsträger bleiben unberührt). Bei Notfristen (Einspruch) und bei allem, was im Dossier nicht vollständig belegt ist (siehe „Nicht abgedeckt"), gilt das doppelt. Der Kalender-Export ist ein technischer Übernahmehelfer; Import und Kontrolle im Zielsystem verantwortet die Kanzlei."
+haftung: "Zweitkontrolle, zwingend: Der Rechner ist das zweite Augenpaar, nie das erste — er ersetzt keine Fristenkontrolle der Kanzlei (Fristenkalender, Vier-Augen-Prinzip, Endkontrolle durch den Berufsträger bleiben unberührt). Bei Notfristen (Einspruch) und bei allem, was im Dossier nicht vollständig belegt ist (siehe „Nicht abgedeckt“), gilt das doppelt. Der Kalender-Export ist ein technischer Übernahmehelfer; Import und Kontrolle im Zielsystem verantwortet die Kanzlei."
 ---
 
 # ao-fristenrechner
