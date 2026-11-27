@@ -83,6 +83,7 @@ Skills folgen ab Welle 6 — noch keiner ist implementiert. Geplanter Fahrplan:
 | `gestaltungswissen` | 7 | `wissen` |
 | `mandanten-fristenkalender` | 8 | `fristen` |
 | `belege-vollstaendigkeit` | 8 | `posteingang` |
+| `belege-sichtung` | 8 | `mandant` |
 | `erechnung-pruefer` | 8 | `posteingang` |
 
 ### Ebenfalls für Steuerkanzleien nutzbar (aus legal-ops-germany)
@@ -106,6 +107,7 @@ sind branchenunabhängig und direkt einsetzbar:
 | [`ao-fristenrechner`](plugins/tax-ops/skills/ao-fristenrechner/SKILL.md) | `fristen` | 6 | 🧪 `beta` |
 | [`aufgaben-triage`](plugins/tax-ops/skills/aufgaben-triage/SKILL.md) | `posteingang` | 6 | 🧪 `beta` |
 | [`stbvv-rechner`](plugins/tax-ops/skills/stbvv-rechner/SKILL.md) | `verguetung` | 6 | 🧪 `beta` |
+| [`belege-sichtung`](plugins/tax-ops/skills/belege-sichtung/SKILL.md) | `mandant` | 8 | 🚧 `Work-in-progress` |
 <!-- skill-status:ende -->
 
 ## Wie es funktioniert
