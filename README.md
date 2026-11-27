@@ -71,7 +71,7 @@ Ein Status wird nie übersprungen dokumentiert: `getestet` setzt inhaltlich
 
 ## Skill-Übersicht (geplant)
 
-Skills folgen ab Welle 6 — noch keiner ist implementiert. Geplanter Fahrplan:
+Fahrplan (Stand der einzelnen Skills: Status-Tabelle oben):
 
 | Skill | Welle | Bereich |
 |---|---|---|

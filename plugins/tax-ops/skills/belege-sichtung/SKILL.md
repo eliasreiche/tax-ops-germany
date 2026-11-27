@@ -5,7 +5,7 @@ status: Work-in-progress
 welle: 8
 bereich: mandant
 stberg_einordnung: "Hilfeleistung i. S. § 3 StBerG — nur durch Berufsträger nutzbar: die vorgeschlagene Zuordnung eines Belegs zu einer Anlage berührt die steuerliche Einordnung. Der Output ist immer ein Entwurf; jede Zuordnung trägt eine Sicherheitsstufe, mehrdeutige Fälle bleiben ausdrücklich offen und entscheidet der Berufsträger."
-daten_hinweis: "Belege sind Mandantendaten (§ 57 StBerG, § 203 StGB). Kanzleiseitig nur über einen Modellzugang, der § 62a StBerG genügt (Kanzleiperimeter, siehe core/context/README.md). Stellt ein Mandant seine eigenen Unterlagen selbst in einem von ihm verantworteten Workspace bereit, entscheidet er über diesen Zugang; Daten anderer Mandanten gehören dort nicht hinein. Der Skill liest nur den genannten Ordner und speichert nichts."
+daten_hinweis: "Belege sind Mandantendaten (§ 57 StBerG, § 203 StGB). Kanzleiseitig nur über einen Modellzugang, der § 62a StBerG genügt (Kanzleiperimeter, siehe core/context/README.md). Stellt ein Mandant seine eigenen Unterlagen selbst in einem von ihm verantworteten Workspace bereit, entscheidet er über diesen Zugang; Daten anderer Mandanten gehören dort nicht hinein; auch dort bedient der Berufsträger den Skill, nicht der Mandant. Der Skill liest nur den genannten Ordner und speichert nichts."
 haftung: "Vorbereitung, keine Prüfung: Belegliste und Lückenliste ersetzen nicht die Durchsicht durch den Berufsträger. Beträge werden nur mit Fundstelle übernommen, nie geschätzt oder summiert; nicht lesbare Dateien werden ausgewiesen, nicht nach Dateinamen zugeordnet. Ob ein Aufwand abziehbar ist und in welcher Anlage er landet, entscheidet allein der Berufsträger."
 ---
 
@@ -67,12 +67,16 @@ Abzugsfähigkeit sind nicht Teil des Outputs.
 | Ausgangsrechnungen, Kontoauszüge Geschäftskonto, Eingangsrechnungen mit Betriebsbezug | Anlage EÜR; Einkunftsart (Anlage S oder G) entscheidet der Berufsträger |
 | Rechnungen mit ausgewiesener USt (Ein- und Ausgang), USt-Voranmeldungen | USt-Erklärung |
 | Honorare aus Lehr- oder Prüfungstätigkeit | Anlage S (`offen`, Einordnung beim Berufsträger) |
-| Kranken-, Pflege-, Renten-, Haftpflicht-, BU-Versicherung | Anlage Vorsorgeaufwand |
-| Basisrente | Anlage AV / Vorsorgeaufwand |
-| Spenden, Kirchensteuer | Sonderausgaben (Hauptvordruck) |
+| Kranken-, Pflege-, Renten-, private Haftpflicht-, BU-Versicherung | Anlage Vorsorgeaufwand; Berufs- oder Betriebshaftpflicht `offen` (Werbungskosten/Betriebsausgabe) |
+| Basisrente (Rürup) | Anlage Vorsorgeaufwand |
+| Riester-Verträge, Altersvorsorgebeiträge mit Zulage | Anlage AV |
+| Spenden | Anlage Sonderausgaben |
+| Kirchensteuer | Anlage Sonderausgaben nur, soweit direkt gezahlt; über den Lohn einbehaltene steht schon auf der Lohnsteuerbescheinigung (`wahrscheinlich`, Prüfpunkt Doppelerfassung) |
 | Studiengebühren, Fachliteratur, Fortbildung | `offen`: Werbungskosten, Betriebsausgaben oder Sonderausgaben |
-| Handwerker- und haushaltsnahe Rechnungen | Haushaltsnahe Aufwendungen (Hauptvordruck); Arbeitslohnanteil und unbare Zahlung als Prüfpunkt nennen |
-| Krankheitskosten, Pflege | Außergewöhnliche Belastungen |
+| Handwerker- und haushaltsnahe Rechnungen | Anlage Haushaltsnahe Aufwendungen; Arbeitslohnanteil und unbare Zahlung als Prüfpunkt nennen |
+| Krankheitskosten | Anlage Außergewöhnliche Belastungen |
+| Pflege- und Betreuungskosten | `offen`: Anlage Außergewöhnliche Belastungen oder Anlage Haushaltsnahe Aufwendungen |
+| Gewerbesteuerbescheide, GewSt-Vorauszahlungen | Gruppe „Bescheide und Schreiben“; die GewSt-Erklärung selbst speist sich aus den EÜR-Unterlagen |
 | Jahressteuerbescheinigung Bank/Broker | Anlage KAP |
 | Bescheide, Schreiben des Finanzamts | keine Anlage; Gruppe „Bescheide und Schreiben“ |
 | Sonstiges | `offen` |
